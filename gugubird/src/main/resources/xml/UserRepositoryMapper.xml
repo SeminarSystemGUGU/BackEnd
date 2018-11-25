@@ -31,4 +31,12 @@
     <select id="getStudents" resultMap="resultListUser">
         SELECT * FROM  user  WHERE ROLE="Student"
     </select>
+
+    <select id="searchTeacher" parameterType="String" resultMap="resultListUser">
+        SELECT * FROM user WHERE ACCOUNT=#{0} OR NAME=#{0};
+    </select>
+
+    <select id="searchStudent" parameterType="String" resultMap="resultListUser">
+        SELECT * FROM user WHERE ACCOUNT=#{0} OR NAME=#{0};
+    </select>
 </mapper>

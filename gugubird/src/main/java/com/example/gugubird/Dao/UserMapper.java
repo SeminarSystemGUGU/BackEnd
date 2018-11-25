@@ -17,4 +17,8 @@ UserMapper {
     public List<UserEntity> getTeachers();
 
     public List<UserEntity> getStudents();
+
+    public List<UserEntity> searchTeacher(String para);
+
+    public List<UserEntity>  searchStudent(String para);
 }

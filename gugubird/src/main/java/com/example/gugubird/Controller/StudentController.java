@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -24,5 +25,12 @@ public class StudentController {
     @ResponseBody
     public List<UserEntity> getStudents(){
         return studentService.getStudents();
+    }
+
+    @GetMapping("searchStudent")
+    @ResponseBody
+    public List<UserEntity> searchStudent(HttpServletRequest request){
+        String para=request.getParameter("studentAccountOrName");
+        return studentService.searchStudent(para);
     }
 }
