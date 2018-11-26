@@ -21,10 +21,6 @@ public class TeacherService{
     public List<UserEntity> getTeachers(){
         return userMapper.getTeachers();
     }
-
-   public List<UserEntity> searchTeacher(String para){
-        return userMapper.searchTeacher(para);
-   }
 }
 
 

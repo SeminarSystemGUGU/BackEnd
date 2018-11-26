@@ -32,11 +32,20 @@
         SELECT * FROM  user  WHERE ROLE="Student"
     </select>
 
-    <select id="searchTeacher" parameterType="String" resultMap="resultListUser">
-        SELECT * FROM user WHERE ACCOUNT=#{0} OR NAME=#{0};
+    <select id="searchUser" parameterType="String" resultMap="resultListUser">
+        SELECT * FROM user WHERE ACCOUNT=#{para} OR NAME=#{para};
     </select>
 
-    <select id="searchStudent" parameterType="String" resultMap="resultListUser">
-        SELECT * FROM user WHERE ACCOUNT=#{0} OR NAME=#{0};
-    </select>
+    <delete id="deleteUser" parameterType="Integer" >
+        DELETE FROM user WHERE USERID=#{para}
+    </delete>
+
+    <update id="resetPassword" parameterType="Integer">
+        SET PASSWORD="123456" WHERE USERID=#{userId}
+    </update>
+
+    <update id="editUser" parameterType="String">
+        SET  USERNAME=#{userName},ACCOUNT=#{userAccount},EMAIL=#{userEmail} WHERE USERID=#{id}
+    </update>
+
 </mapper>

@@ -2,6 +2,7 @@ package com.example.gugubird.Dao;
 
 import com.example.gugubird.Entity.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,7 +19,11 @@ UserMapper {
 
     public List<UserEntity> getStudents();
 
-    public List<UserEntity> searchTeacher(String para);
+    public List<UserEntity> searchUser(@Param("para") String para);
 
-    public List<UserEntity>  searchStudent(String para);
+    public boolean deleteUser(@Param("para") int para);
+
+    public  boolean resetPassword(@Param("userId") int userId);
+
+    public boolean editUser(@Param("id") int id,@Param("userName") String userName,@Param("userAccount") String userAccount,@Param("userEmail") String userEmail);
 }

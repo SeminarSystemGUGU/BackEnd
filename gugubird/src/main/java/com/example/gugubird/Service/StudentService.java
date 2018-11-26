@@ -18,7 +18,4 @@ public class StudentService {
         return userMapper.getStudents();
     }
 
-    public List<UserEntity>  searchStudent(String para){
-        return userMapper.searchStudent(para);
-    }
 }

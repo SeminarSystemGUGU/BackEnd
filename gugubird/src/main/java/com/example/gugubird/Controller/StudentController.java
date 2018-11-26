@@ -26,11 +26,4 @@ public class StudentController {
     public List<UserEntity> getStudents(){
         return studentService.getStudents();
     }
-
-    @GetMapping("searchStudent")
-    @ResponseBody
-    public List<UserEntity> searchStudent(HttpServletRequest request){
-        String para=request.getParameter("studentAccountOrName");
-        return studentService.searchStudent(para);
-    }
 }

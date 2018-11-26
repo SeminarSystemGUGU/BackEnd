@@ -28,13 +28,4 @@ TeacherController {
         return teacherService.getTeachers();
     }
 
-    @GetMapping("/searchTeacher")
-    @ResponseBody
-    public List<UserEntity> searchTeacher(HttpServletRequest request){
-        String para=request.getParameter("teacherAccountOrName");
-        return teacherService.searchTeacher(para);
-    }
-
-
-
 }

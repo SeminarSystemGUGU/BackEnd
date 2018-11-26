@@ -22,9 +22,11 @@ public class BrowerSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()        // 定义哪些URL需要被保护、哪些不需要被保护
                // .antMatchers("/user/hello").hasRole("Teacher")
-                .antMatchers("/**/**").permitAll()
+                .antMatchers("/**").permitAll()
                 .anyRequest()               // 任何请求,登录后可以访问
-                .authenticated();
+                .authenticated()
+                .and()
+                .csrf().disable();
     }
 
     @Autowired
