@@ -3,6 +3,19 @@
 
 <!-- 指定工作空间，要与接口名相同，源代码没有去看，猜测应该是通过"这里的namespace.下边方法的id"来定位方法的 -->
 <mapper namespace="com.example.gugubird.Dao.UserMapper">
+    <resultMap id="resultListUser" type="com.example.gugubird.Entity.UserEntity">
+        <id column="USERID" property="userId"/>
+        <result column="ACCOUNT" property="account"/>
+        <result column="PASSWORD" property="password"/>
+        <result column="NAME" property="name"/>
+        <result column="ROLE" property="role"/>
+        <result column="EMAIL" property="email"/>
+        <result column="TIMEINTERVAL" property="timeInterval"/>
+        <result column="CODE" property="code"/>
+        <result column="STATUS" property="status"/>
+    </resultMap>
+
+
     <delete id="delete" parameterType="String">
     DELETE FROM user WHERE Account=#{arg0}
     </delete>
@@ -10,4 +23,29 @@
     <select id="findAccount" resultType="com.example.gugubird.Entity.UserEntity">
         SELECT USERID,ACCOUNT,PASSWORD,NAME,ROLE,EMAIL,TIMEINTERVAL,CODE,STATUS FROM user WHERE Account=#{arg0}
     </select>
+
+    <select id="getTeachers" resultMap="resultListUser">
+        SELECT * FROM  user  WHERE ROLE="Teacher"
+    </select>
+
+    <select id="getStudents" resultMap="resultListUser">
+        SELECT * FROM  user  WHERE ROLE="Student"
+    </select>
+
+    <select id="searchUser" parameterType="String" resultMap="resultListUser">
+        SELECT * FROM user WHERE ACCOUNT=#{para} OR NAME=#{para};
+    </select>
+
+    <delete id="deleteUser" parameterType="Integer" >
+        DELETE FROM user WHERE USERID=#{para}
+    </delete>
+
+    <update id="resetPassword" parameterType="Integer">
+        SET PASSWORD="123456" WHERE USERID=#{userId}
+    </update>
+
+    <update id="editUser" parameterType="String">
+        SET  USERNAME=#{userName},ACCOUNT=#{userAccount},EMAIL=#{userEmail} WHERE USERID=#{id}
+    </update>
+
 </mapper>

@@ -1,6 +1,5 @@
 package com.example.gugubird.Entity;
 
-import javax.persistence.*;
 import java.sql.Date;
 
 public class UserEntity {

@@ -18,4 +18,5 @@ public class GugubirdApplicationTests {
 		userMapper.delete("123");
 	}
 
+
 }
