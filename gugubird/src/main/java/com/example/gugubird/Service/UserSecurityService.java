@@ -1,6 +1,6 @@
 package com.example.gugubird.Service;
 
-import com.example.gugubird.Dao.UserMapper;
+import com.example.gugubird.Mapper.UserMapper;
 import com.example.gugubird.Entity.User;
 import com.example.gugubird.Entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
