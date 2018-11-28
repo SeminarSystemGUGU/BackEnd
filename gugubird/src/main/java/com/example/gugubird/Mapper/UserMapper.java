@@ -3,6 +3,7 @@ package com.example.gugubird.Mapper;
 import com.example.gugubird.Entity.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,19 +12,22 @@ import java.util.List;
 @Repository
 public interface
 UserMapper {
-    public void delete(String account);
+     void delete(String account);
 
-    public UserEntity findAccount(String account);
+     UserEntity findAccount(String account);
 
-    public List<UserEntity> getTeachers();
+     List<UserEntity> getTeachers();
 
-    public List<UserEntity> getStudents();
+     List<UserEntity> getStudents();
 
-    public List<UserEntity> searchUser(@Param("para") String para);
+     List<UserEntity> searchUser(@Param("para") String para);
 
-    public boolean deleteUser(@Param("para") int para);
+     boolean deleteUser(@Param("para") int para);
 
-    public  boolean resetPassword(@Param("userId") int userId);
+      boolean resetPassword(@Param("userId") int userId);
 
-    public boolean editUser(@Param("id") int id,@Param("userName") String userName,@Param("userAccount") String userAccount,@Param("userEmail") String userEmail);
+     boolean editUser(@Param("id") int id,@Param("userName") String userName,@Param("userAccount") String userAccount,@Param("userEmail") String userEmail);
+
+    @Select("select * from user where ACCOUNT=#{arg0} and PASSWORD=#{arg1}")
+     UserEntity findByAccountAndPassword(String account,String password);
 }
