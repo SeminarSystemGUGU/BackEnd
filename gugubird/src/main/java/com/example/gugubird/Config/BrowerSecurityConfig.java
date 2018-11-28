@@ -21,7 +21,7 @@ public class BrowerSecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe()//提供记住账号密码的功能
                 .and()
                 .authorizeRequests()        // 定义哪些URL需要被保护、哪些不需要被保护
-               // .antMatchers("/user/hello").hasRole("Teacher")
+               // .antMatchers("/test/nice").hasRole("Teacher")
                 .antMatchers("/**").permitAll()
                 .anyRequest()               // 任何请求,登录后可以访问
                 .authenticated()

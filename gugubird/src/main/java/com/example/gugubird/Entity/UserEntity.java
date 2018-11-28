@@ -1,7 +1,6 @@
 package com.example.gugubird.Entity;
 
 import java.sql.Date;
-
 public class UserEntity {
     private int userId;
     private String account;

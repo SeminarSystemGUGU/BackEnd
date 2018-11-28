@@ -18,6 +18,7 @@ public class UserSecurityService implements UserDetailsService{
     UserMapper userMapper;
     @Override
     public UserDetails loadUserByUsername(String account) throws UsernameNotFoundException {
+        System.out.println(account);
         UserEntity users =userMapper.findAccount(account);
         if(users == null) {
             throw new UsernameNotFoundException("User not found for name:"+account);

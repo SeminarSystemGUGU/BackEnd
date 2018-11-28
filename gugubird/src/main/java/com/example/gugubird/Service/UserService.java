@@ -1,7 +1,9 @@
 package com.example.gugubird.Service;
 
+import com.example.gugubird.Dao.UserDao;
 import com.example.gugubird.Mapper.UserMapper;
 import com.example.gugubird.Entity.UserEntity;
+import com.example.gugubird.Model.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +14,19 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public List<UserEntity> searchUser(String role,String para){
-        if(para.equals("")&&role.equals("Teacher"))
+    public List<UserEntity> searchUser(String role,String para) {
+        if (para.equals("") && role.equals("Teacher"))
             return userMapper.getTeachers();
-        else if(para.equals("")&&role.equals("Student"))
+        else if (para.equals("") && role.equals("Student"))
             return userMapper.getStudents();
         else
             return userMapper.searchUser(para);
+    }
+    @Autowired
+    UserDao userDao;
+
+    public List<UserEntity> searchUser(String para){
+        return userMapper.searchUser(para);
     }
 
     public boolean deleteUser(int para){
@@ -31,5 +39,9 @@ public class UserService {
 
     public boolean editUser(int id,String userName,String userAccount,String userEmail){
         return userMapper.editUser(id,userName,userAccount,userEmail);
+    }
+    public LoginVO login(String account, String password)
+    {
+        return userDao.login(account,password);
     }
 }
