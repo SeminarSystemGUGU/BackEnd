@@ -1,6 +1,6 @@
 package com.example.gugubird;
 
-import com.example.gugubird.Dao.UserMapper;
+import com.example.gugubird.Mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class GugubirdApplicationTests {
 	UserMapper userMapper;
 	@Test
 	public void contextLoads() {
-		userMapper.delete("123");
+		userMapper.findAccount("123");
 	}
 
 

@@ -1,6 +1,6 @@
 package com.example.gugubird.Service;
 
-import com.example.gugubird.Dao.UserMapper;
+import com.example.gugubird.Mapper.UserMapper;
 import com.example.gugubird.Entity.User;
 import com.example.gugubird.Entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +18,7 @@ public class UserSecurityService implements UserDetailsService{
     UserMapper userMapper;
     @Override
     public UserDetails loadUserByUsername(String account) throws UsernameNotFoundException {
+        System.out.println(account);
         UserEntity users =userMapper.findAccount(account);
         if(users == null) {
             throw new UsernameNotFoundException("User not found for name:"+account);
