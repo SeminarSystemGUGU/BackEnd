@@ -20,16 +20,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("hello")
-    public String getUsers()
-    {
-        return "hello";
-    }
-
-    @GetMapping("login")
-    public void login(HttpServletRequest request) throws Exception {
-    }
-
     @GetMapping("/searchUser")
     @ResponseBody
     public List<UserEntity> searchUser(String accountOrName){
@@ -43,14 +33,12 @@ public class UserController {
         return userService.deleteUser(Id);
     }
 
-
     @PutMapping("/resetPassword")
     @ResponseBody
     public boolean resetPassword(String userId){
         int id=Integer.parseInt(userId);
         return userService.resetPassword(id);
     }
-
 
     @PutMapping("/editUser")
     @ResponseBody
