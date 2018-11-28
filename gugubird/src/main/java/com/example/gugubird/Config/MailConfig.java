@@ -16,6 +16,8 @@ public class MailConfig {
     String host;
     @Value("${spring.mail.username}")
     String username;
+
+
     @Value("${spring.mail.password}")
     String password;
     @Bean

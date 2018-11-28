@@ -12,9 +12,13 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-
-    public List<UserEntity> searchUser(String para){
-        return userMapper.searchUser(para);
+    public List<UserEntity> searchUser(String role,String para){
+        if(para.equals("")&&role.equals("Teacher"))
+            return userMapper.getTeachers();
+        else if(para.equals("")&&role.equals("Student"))
+            return userMapper.getStudents();
+        else
+            return userMapper.searchUser(para);
     }
 
     public boolean deleteUser(int para){

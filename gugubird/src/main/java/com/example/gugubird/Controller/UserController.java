@@ -31,13 +31,11 @@ public class UserController {
     }
 
     @GetMapping("/searchUser")
-    @ResponseBody
-    public List<UserEntity> searchUser(String accountOrName){
-        return userService.searchUser(accountOrName);
+    public List<UserEntity> searchUser(String role,String accountOrName){
+        return userService.searchUser(role,accountOrName);
     }
 
     @DeleteMapping("/deleteUser")
-    @ResponseBody
     public boolean deleteUser(String userId){
         int Id=Integer.parseInt(userId);
         return userService.deleteUser(Id);
@@ -45,7 +43,6 @@ public class UserController {
 
 
     @PutMapping("/resetPassword")
-    @ResponseBody
     public boolean resetPassword(String userId){
         int id=Integer.parseInt(userId);
         return userService.resetPassword(id);
@@ -53,7 +50,6 @@ public class UserController {
 
 
     @PutMapping("/editUser")
-    @ResponseBody
     public boolean editUser(String userId,String userName,String userAccount,String userEmail){
         int id=Integer.parseInt(userId);
         return userService.editUser(id,userName,userAccount,userEmail);
