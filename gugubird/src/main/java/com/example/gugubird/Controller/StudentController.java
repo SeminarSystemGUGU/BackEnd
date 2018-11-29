@@ -26,4 +26,10 @@ public class StudentController {
     public List<UserEntity> getStudents(){
         return studentService.getStudents();
     }
+
+     @GetMapping("studentInfo")
+    public UserEntity getStudentInfo(HttpServletRequest httpServletRequest)
+     {
+         return studentService.getStudentInfo(httpServletRequest);
+     }
 }
