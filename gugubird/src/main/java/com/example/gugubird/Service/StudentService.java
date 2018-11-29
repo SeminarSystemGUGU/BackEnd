@@ -19,6 +19,7 @@ public class StudentService {
     private UserMapper userMapper;
     @Autowired
     StudentMapper studentMapper;
+    
     @Value("${cookie.userId.name}")
     String userIdName;
 
