@@ -10,6 +10,13 @@ import org.springframework.stereotype.Component;
 public class UserDao {
     @Autowired
     UserMapper userMapper;
+
+    /**
+     * 用户登录
+     * @param account
+     * @param password
+     * @return
+     */
     public LoginVO login(String account, String password)
     {
         LoginVO loginVO=new LoginVO();
@@ -24,4 +31,6 @@ public class UserDao {
         return loginVO;
 
     }
+
+
 }

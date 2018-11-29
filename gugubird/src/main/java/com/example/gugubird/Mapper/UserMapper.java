@@ -30,4 +30,6 @@ UserMapper {
 
     @Select("select * from user where ACCOUNT=#{arg0} and PASSWORD=#{arg1}")
      UserEntity findByAccountAndPassword(String account,String password);
+
+
 }
