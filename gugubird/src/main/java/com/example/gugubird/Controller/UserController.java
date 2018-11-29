@@ -34,6 +34,7 @@ public class UserController {
         return userService.deleteUser(Id);
     }
 
+
     @PutMapping("/resetPassword")
     @ResponseBody
     public boolean resetPassword(String userId){
