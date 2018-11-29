@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 指定工作空间，要与接口名相同，源代码没有去看，猜测应该是通过"这里的namespace.下边方法的id"来定位方法的 -->
+<mapper namespace="com.example.gugubird.Mapper.TeamMapper">
+
+    <resultMap id="resultListTeam" type="com.example.gugubird.Entity.TeamEntity">
+        <id column="TeamId" property="teamId"/>
+        <result column="TeamName" property="teamName"/>
+        <result column="MemberNumber" property="memberNumber"/>
+        <result column="TeamLeaderId" property="teamLeaderId"/>
+        <result column="ClassId" property="classId"/>
+    </resultMap>
+
+    <insert id="createTeam" parameterType="com.example.gugubird.Model.NewTeamDTO">
+        INSERT INTO team(TeamName,MemberNumber,TeamLeaderId,ClassId) VALUES (#{teamName},#{memberNumber},#{teamLeaderId},#{classId})
+    </insert>
+    
+    <insert id="addTo_student_class_team" parameterType="com.example.gugubird.Model.NewTeamDTO">
+        INSERT INTO student_class_team VALUES (#{studentId},#{classId},#{teamId},1)
+    </insert>
+
+    <select id="getTeams" parameterType="Integer" resultMap="resultListTeam">
+        SELECT * FROM team WHERE classId=#{arg0}
+    </select>
+
+    <select id="getStudentTeam" resultMap="resultListTeam">
+        SELECT * FROM team WHERE classId=#{arg0} AND TeamId=#{arg1}
+    </select>
+
+    <select id="teamIdOfStudent" resultType="Integer">
+        SELECT TeamId FROM student_class_team WHERE StudentId=#{arg1} AND ClassId=#{arg0}
+    </select>
+
+    <delete id="deleteTeamInClass" parameterType="Integer">
+        DELETE FROM team WHERE ClassId=#{arg0}
+    </delete>
+
+</mapper>

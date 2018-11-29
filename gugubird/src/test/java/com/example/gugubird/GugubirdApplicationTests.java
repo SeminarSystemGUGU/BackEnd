@@ -10,14 +10,5 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class GugubirdApplicationTests {
-    @Autowired
-    UserMapper userMapper;
-@Test
-    public void test()
-{
-    System.out.println(userMapper.searchUser("ÇñÐ¡Ã÷").get(0).getAccount());
-}
-
-
 
 }

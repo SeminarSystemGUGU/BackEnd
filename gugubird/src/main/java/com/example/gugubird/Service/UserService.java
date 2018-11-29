@@ -14,32 +14,45 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public List<UserEntity> searchUser(String role,String para) {
-        if (para.equals("") && role.equals("Teacher"))
-            return userMapper.getTeachers();
-        else if (para.equals("") && role.equals("Student"))
-            return userMapper.getStudents();
-        else
-            return userMapper.searchUser(para);
-    }
     @Autowired
-    UserDao userDao;
+    private UserDao userDao;
 
-    public List<UserEntity> searchUser(String para){
-        return userMapper.searchUser(para);
+
+    /*获取所有教师账号*/
+    public List<UserEntity> getTeachers(){
+        return userDao.getTeachers();
     }
 
+    /*获取所有学生账号*/
+    public List<UserEntity> getStudents(){
+        return userDao.getStudents();
+    }
+
+    /*删除用户*/
     public boolean deleteUser(int para){
         return userMapper.deleteUser(para);
     }
 
+    /*重置密码*/
     public boolean resetPassword(int userId){
         return userMapper.resetPassword(userId);
     }
 
+    /*编辑用户信息*/
     public boolean editUser(int id,String userName,String userAccount,String userEmail){
         return userMapper.editUser(id,userName,userAccount,userEmail);
     }
+
+    /*搜索用户*/
+    public List<UserEntity> searchUser(String role,String para) {
+        if (para.equals("") && role.equals("Teacher"))
+            return userDao.getTeachers();
+        else if (para.equals("") && role.equals("Student"))
+            return userDao.getStudents();
+        else
+            return userMapper.searchUser(para);
+    }
+
     public LoginVO login(String account, String password)
     {
         return userDao.login(account,password);
