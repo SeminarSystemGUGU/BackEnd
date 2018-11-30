@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -73,14 +74,15 @@ public class UserController {
 
     /**
      * 用户登录
-     * @param password
+     * @param
      * @param account
      * @return
      */
     @PostMapping("/{account}/login")
-    public LoginVO login(@RequestBody String password, @PathVariable("account") String account)
+    public LoginVO login(@RequestBody Map<String,String> map, @PathVariable("account") String account)
     {
-        return userService.login(account,password);
+        System.out.println(map.get("password"));
+        return userService.login(account,map.get("password"));
     }
 
 }
