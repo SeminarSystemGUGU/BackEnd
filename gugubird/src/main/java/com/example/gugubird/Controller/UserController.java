@@ -55,8 +55,8 @@ public class UserController {
      * @param account
      * @return
      */
-    @PostMapping("/user/{account}/login")
-    public LoginVO login(@RequestBody String password, @RequestParam String account)
+    @PostMapping("/{account}/login")
+    public LoginVO login(@RequestBody String password, @PathVariable("account") String account)
     {
         return userService.login(account,password);
     }
