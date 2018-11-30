@@ -3,28 +3,25 @@ package com.example.gugubird.Model;
 import java.util.List;
 
 public class NewTeamDTO {
-  //  List<Integer> studentId;
-    int studentId;
+    List<Integer> studentId;
     String teamName;
     int memberNumber;
     int teamLeaderId;
     int classId;
 
-    public int getStudentId() {
+
+    public int getStudentNumber(){
+        return studentId.size();
+    }
+
+
+    public List<Integer> getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(List<Integer> studentId) {
         this.studentId = studentId;
     }
-
-//    public List<Integer> getStudentId() {
-//        return studentId;
-//    }
-//
-//    public void setStudentId(List<Integer> studentId) {
-//        this.studentId = studentId;
-//    }
 
     public String getTeamName() {
         return teamName;
