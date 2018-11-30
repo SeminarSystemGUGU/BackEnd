@@ -1,6 +1,7 @@
 package com.example.gugubird.Controller;
 
 import com.example.gugubird.Entity.UserEntity;
+import com.example.gugubird.Model.EditUserDTO;
 import com.example.gugubird.Model.LoginVO;
 import com.example.gugubird.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,15 +61,14 @@ public class UserController {
     /**
      * 编辑用户账号信息
      * @param userId
-     * @param userName
-     * @param userAccount
-     * @param userEmail
+     * @param editUserDTO
      * @return
      */
     @PutMapping("/{userId}/userInfomation")
-    public boolean editUser(@PathVariable String userId,@RequestBody String userName,@RequestBody String userAccount,@RequestBody String userEmail){
-        int id=Integer.parseInt(userId);
-        return userService.editUser(id,userName,userAccount,userEmail);
+    public boolean editUser(@PathVariable("userId") int userId, @RequestBody EditUserDTO editUserDTO){
+        //return userService.editUser(userId,editUserDTO.getUserName(),editUserDTO.getUserAccount(),editUserDTO.getUserEmail());
+        editUserDTO.setUserId(userId);
+        return  userService.editUser(editUserDTO);
     }
 
     /**

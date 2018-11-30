@@ -1,6 +1,7 @@
 package com.example.gugubird.Mapper;
 
 import com.example.gugubird.Entity.UserEntity;
+import com.example.gugubird.Model.EditUserDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -26,10 +27,10 @@ UserMapper {
      boolean deleteUser(@Param("para") int para);
 
     /*重置密码*/
-      boolean resetPassword(@Param("userId") int userId,@Param("password") String password);
+      boolean resetPassword(@Param("userId") int userId);
 
     /*编辑用户账号信息*/
-     boolean editUser(@Param("id") int id,@Param("userName") String userName,@Param("userAccount") String userAccount,@Param("userEmail") String userEmail);
+     boolean editUser(EditUserDTO editUserDTO);
 
     @Select("select * from user where ACCOUNT=#{account} and PASSWORD=#{password}")
      UserEntity findByAccountAndPassword(@Param("account") String account,@Param("password") String password);

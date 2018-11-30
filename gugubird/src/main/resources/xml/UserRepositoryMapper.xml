@@ -41,11 +41,11 @@
     </delete>
 
     <update id="resetPassword" parameterType="Integer">
-        SET PASSWORD='123456' WHERE USERID=#{userId}
+        UPDATE user SET PASSWORD='123456' WHERE USERID=#{userId}
     </update>
 
-    <update id="editUser" parameterType="String">
-        SET  USERNAME=#{userName},ACCOUNT=#{userAccount},EMAIL=#{userEmail} WHERE USERID=#{id}
+    <update id="editUser" parameterType="com.example.gugubird.Model.EditUserDTO">
+        UPDATE user SET  NAME=#{userName},ACCOUNT=#{userAccount},EMAIL=#{userEmail} WHERE USERID=#{userId}
     </update>
 
     <select id="notGroupStudent" parameterType="Integer" resultMap="resultListUser">

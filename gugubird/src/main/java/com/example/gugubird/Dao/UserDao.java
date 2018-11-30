@@ -2,6 +2,7 @@ package com.example.gugubird.Dao;
 
 import com.example.gugubird.Entity.UserEntity;
 import com.example.gugubird.Mapper.UserMapper;
+import com.example.gugubird.Model.EditUserDTO;
 import com.example.gugubird.Model.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -56,8 +57,8 @@ public class UserDao {
         return userMapper.resetPassword(userId,"123456");
     };
 
-    public  boolean editUser(int id,String userName,String userAccount,String userEmail){
-        return userMapper.editUser(id,userName,userAccount,userEmail);
+    public  boolean editUser(EditUserDTO editUserDTO){
+        return userMapper.editUser(editUserDTO);
     };
 
     /*获取当前班级下未组队学生信息*/

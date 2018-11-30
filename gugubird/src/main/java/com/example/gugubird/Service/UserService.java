@@ -3,6 +3,7 @@ package com.example.gugubird.Service;
 import com.example.gugubird.Dao.UserDao;
 import com.example.gugubird.Mapper.UserMapper;
 import com.example.gugubird.Entity.UserEntity;
+import com.example.gugubird.Model.EditUserDTO;
 import com.example.gugubird.Model.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,8 +40,8 @@ public class UserService {
     }
 
     /*编辑用户信息*/
-    public boolean editUser(int id,String userName,String userAccount,String userEmail){
-        return userDao.editUser(id,userName,userAccount,userEmail);
+    public boolean editUser(EditUserDTO editUserDTO){
+        return userDao.editUser(editUserDTO);
     }
 
     /*搜索用户*/
