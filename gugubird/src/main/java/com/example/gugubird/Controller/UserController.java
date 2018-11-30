@@ -21,29 +21,52 @@ public class UserController {
     @Autowired
     UserService userService;
 
+
+    /**
+     * 搜索用户
+     * @param role
+     * @param accountOrName
+     * @return
+     */
     @GetMapping("/searchUser")
-    @ResponseBody
-    public List<UserEntity> searchUser(String accountOrName){
-        return userService.searchUser(accountOrName);
+    public List<UserEntity> searchUser(String role,String accountOrName){
+        return userService.searchUser(role,accountOrName);
     }
 
-    @DeleteMapping("/deleteUser")
-    @ResponseBody
+
+    /**
+     * 删除账户
+     * @param userId
+     * @return
+     */
+    @DeleteMapping("/")
     public boolean deleteUser(String userId){
         int Id=Integer.parseInt(userId);
         return userService.deleteUser(Id);
     }
 
 
-    @PutMapping("/resetPassword")
-    @ResponseBody
+    /**
+     * 用户重置密码
+     * @param userId
+     * @return
+     */
+    @PutMapping("/password")
     public boolean resetPassword(String userId){
         int id=Integer.parseInt(userId);
         return userService.resetPassword(id);
     }
 
-    @PutMapping("/editUser")
-    @ResponseBody
+
+    /**
+     * 编辑用户账号信息
+     * @param userId
+     * @param userName
+     * @param userAccount
+     * @param userEmail
+     * @return
+     */
+    @PutMapping("/studentInfomation")
     public boolean editUser(String userId,String userName,String userAccount,String userEmail){
         int id=Integer.parseInt(userId);
         return userService.editUser(id,userName,userAccount,userEmail);
@@ -60,4 +83,5 @@ public class UserController {
     {
         return userService.login(account,password);
     }
+
 }

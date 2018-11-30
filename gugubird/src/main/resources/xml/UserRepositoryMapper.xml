@@ -33,7 +33,7 @@
     </select>
 
     <select id="searchUser" parameterType="String" resultMap="resultListUser">
-        SELECT * FROM user WHERE ACCOUNT=#{para} OR NAME=#{para};
+        SELECT * FROM user WHERE ACCOUNT=#{para} OR NAME=#{para}
     </select>
 
     <delete id="deleteUser" parameterType="Integer" >
@@ -47,5 +47,11 @@
     <update id="editUser" parameterType="String">
         SET  USERNAME=#{userName},ACCOUNT=#{userAccount},EMAIL=#{userEmail} WHERE USERID=#{id}
     </update>
+
+    <select id="notGroupStudent" parameterType="Integer" resultMap="resultListUser">
+        SELECT * FROM user WHERE ROLE="Student" AND USERID IN (
+        SELECT StudentId FROM student_class_team WHERE ClassId=#{arg0} AND TeamId IS NULL
+        )
+    </select>
 
 </mapper>

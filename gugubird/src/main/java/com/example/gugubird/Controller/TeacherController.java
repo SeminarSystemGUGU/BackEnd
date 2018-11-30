@@ -1,11 +1,19 @@
 package com.example.gugubird.Controller;
 
 import com.example.gugubird.Entity.UserEntity;
+import com.example.gugubird.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.gugubird.Model.NewTeacherDTO;
 import com.example.gugubird.Service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.web.bind.annotation.*;
+
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -18,13 +26,18 @@ TeacherController {
     AuthenticationManagerBuilder auth;
 
     @Autowired
-    private TeacherService teacherService;
+    private UserService userService;
+    @Autowired
+    TeacherService teacherService;
 
-    //这里和约定好的jpa样式好像不太一致
-    @GetMapping("/getTeachers")
-    @ResponseBody
+
+    /**
+     * ��ȡ���н�ʦ�˺�
+     * @return
+     */
+    @GetMapping("/")
     public List<UserEntity> getTeachers() {
-        return teacherService.getTeachers();
+        return userService.getTeachers();
     }
 
     /**

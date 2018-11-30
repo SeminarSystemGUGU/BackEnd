@@ -1,15 +1,14 @@
 package com.example.gugubird.Controller;
 
+import com.example.gugubird.Entity.User;
 import com.example.gugubird.Entity.UserEntity;
-import com.example.gugubird.Service.StudentService;
+import com.example.gugubird.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -19,12 +18,16 @@ public class StudentController {
     AuthenticationManagerBuilder auth;
 
     @Autowired
-    private StudentService studentService;
+    private UserService userService;
 
-    @GetMapping("/getStudents")
-    @ResponseBody
+
+    /**
+     * 获取所有学生账号
+     * @return
+     */
+    @GetMapping("/")
     public List<UserEntity> getStudents(){
-        return studentService.getStudents();
+        return userService.getStudents();
     }
 
      @GetMapping("studentInfo")
