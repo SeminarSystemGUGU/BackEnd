@@ -39,7 +39,7 @@ TeacherController {
     }
 
     /**
-     * 鑾峰彇鑰佸笀淇℃伅
+     * 获取教师信息
      * @return
      */
     @GetMapping("/teacherInfo")
@@ -49,7 +49,7 @@ TeacherController {
     }
 
     /**
-     * 鏂板缓鏁欏笀淇℃伅
+     * 创建教师账号
      * @param newTeacherDTO
      * @return
      */

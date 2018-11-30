@@ -54,7 +54,7 @@ public class UserDao {
     };
 
     public boolean resetPassword(int userId){
-        return userMapper.resetPassword(userId,"123456");
+        return userMapper.resetPassword(userId);
     };
 
     public  boolean editUser(EditUserDTO editUserDTO){
