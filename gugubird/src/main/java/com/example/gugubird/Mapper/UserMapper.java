@@ -26,13 +26,13 @@ UserMapper {
      boolean deleteUser(@Param("para") int para);
 
     /*重置密码*/
-      boolean resetPassword(@Param("userId") int userId);
+      boolean resetPassword(@Param("userId") int userId,@Param("password") String password);
 
     /*编辑用户账号信息*/
      boolean editUser(@Param("id") int id,@Param("userName") String userName,@Param("userAccount") String userAccount,@Param("userEmail") String userEmail);
 
-    @Select("select * from user where ACCOUNT=#{arg0} and PASSWORD=#{arg1}")
-     UserEntity findByAccountAndPassword(String account,String password);
+    @Select("select * from user where ACCOUNT=#{account} and PASSWORD=#{password}")
+     UserEntity findByAccountAndPassword(@Param("account") String account,@Param("password") String password);
 
     /*获取当前班级下未组队学生信息*/
     List<UserEntity> notGroupStudent(int classId);

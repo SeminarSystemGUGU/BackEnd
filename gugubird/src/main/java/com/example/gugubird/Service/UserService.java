@@ -30,17 +30,17 @@ public class UserService {
 
     /*删除用户*/
     public boolean deleteUser(int para){
-        return userMapper.deleteUser(para);
+        return userDao.deleteUser(para);
     }
 
     /*重置密码*/
     public boolean resetPassword(int userId){
-        return userMapper.resetPassword(userId);
+        return userDao.resetPassword(userId);
     }
 
     /*编辑用户信息*/
     public boolean editUser(int id,String userName,String userAccount,String userEmail){
-        return userMapper.editUser(id,userName,userAccount,userEmail);
+        return userDao.editUser(id,userName,userAccount,userEmail);
     }
 
     /*搜索用户*/

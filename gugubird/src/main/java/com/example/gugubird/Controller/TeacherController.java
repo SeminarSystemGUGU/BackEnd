@@ -33,7 +33,7 @@ TeacherController {
      * 获取所有教师账号
      * @return
      */
-    @GetMapping("/")
+    @GetMapping("")
     public List<UserEntity> getTeachers() {
         return userService.getTeachers();
     }
@@ -42,7 +42,7 @@ TeacherController {
      * 鑾峰彇鑰佸笀淇℃伅
      * @return
      */
-    @GetMapping("teacherInfo")
+    @GetMapping("/teacherInfo")
     public UserEntity getTeacherInfo(HttpServletRequest httpServletRequest)
     {
         return teacherService.getTeacherInfo(httpServletRequest);

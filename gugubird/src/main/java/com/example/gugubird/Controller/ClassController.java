@@ -49,13 +49,13 @@ public class ClassController {
         return classService.getTeams(classId);
     }
 
+
     /** 获取当前班级下当前学生的组队信息
      * @param classId
      * @param httpServletRequest
      * @return
      */
     @GetMapping("/{classId}/studentTeam")
-   // public List<TeamEntity> getStudentTeam(@PathVariable int classId,@RequestParam int studentId){
     public List<TeamEntity> getStudentTeam(@PathVariable int classId,HttpServletRequest httpServletRequest){
         return classService.getStudentTeam(classId,httpServletRequest);
     }

@@ -8,7 +8,7 @@ public class CourseEntity {
     private String CourseName;
     private String CourseIntroduction;
     private int TeacherId;
-    private float presentationProportion;
+    private float PresentationProportion;
     private float QuestionProportion;
     private float ReportProportion;
     private Date TeamStartTime;
@@ -51,11 +51,11 @@ public class CourseEntity {
     }
 
     public float getPresentationProportion() {
-        return presentationProportion;
+        return PresentationProportion;
     }
 
     public void setPresentationProportion(float presentationProportion) {
-        this.presentationProportion = presentationProportion;
+        this.PresentationProportion = presentationProportion;
     }
 
     public float getQuestionProportion() {

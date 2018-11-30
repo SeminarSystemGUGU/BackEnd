@@ -41,7 +41,7 @@
     </delete>
 
     <update id="resetPassword" parameterType="Integer">
-        SET PASSWORD="123456" WHERE USERID=#{userId}
+        SET PASSWORD='123456' WHERE USERID=#{userId}
     </update>
 
     <update id="editUser" parameterType="String">

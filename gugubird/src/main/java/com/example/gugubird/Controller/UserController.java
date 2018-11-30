@@ -29,7 +29,7 @@ public class UserController {
      * @return
      */
     @GetMapping("/searchUser")
-    public List<UserEntity> searchUser(String role,String accountOrName){
+    public List<UserEntity> searchUser( String role, String accountOrName){
         return userService.searchUser(role,accountOrName);
     }
 
@@ -39,8 +39,8 @@ public class UserController {
      * @param userId
      * @return
      */
-    @DeleteMapping("/")
-    public boolean deleteUser(String userId){
+    @DeleteMapping("/{userId}")
+    public boolean deleteUser(@PathVariable String userId){
         int Id=Integer.parseInt(userId);
         return userService.deleteUser(Id);
     }
@@ -51,10 +51,9 @@ public class UserController {
      * @param userId
      * @return
      */
-    @PutMapping("/password")
-    public boolean resetPassword(String userId){
-        int id=Integer.parseInt(userId);
-        return userService.resetPassword(id);
+    @PutMapping("/{userId}/password")
+    public boolean resetPassword(@PathVariable int userId){
+        return userService.resetPassword(userId);
     }
 
 
@@ -66,8 +65,8 @@ public class UserController {
      * @param userEmail
      * @return
      */
-    @PutMapping("/studentInfomation")
-    public boolean editUser(String userId,String userName,String userAccount,String userEmail){
+    @PutMapping("/{userId}/userInfomation")
+    public boolean editUser(@PathVariable String userId,@RequestBody String userName,@RequestBody String userAccount,@RequestBody String userEmail){
         int id=Integer.parseInt(userId);
         return userService.editUser(id,userName,userAccount,userEmail);
     }

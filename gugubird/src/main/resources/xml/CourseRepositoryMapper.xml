@@ -3,10 +3,28 @@
 
 <!-- 指定工作空间，要与接口名相同，源代码没有去看，猜测应该是通过"这里的namespace.下边方法的id"来定位方法的 -->
 <mapper namespace="com.example.gugubird.Mapper.CourseMapper">
+    <resultMap id="resultListCourse" type="com.example.gugubird.Entity.CourseEntity">
+        <id column="CourseId" property="CourseId"/>
+        <result column="CourseName" property="CourseName"/>
+        <!--<result column="CourseIntroduction" property="CourseIntroduction"/>-->
+        <!--<result column="TeacherId" property="TeacherId"/>-->
+        <!--<result column="PresentationProportion" property="PresentationProportion"/>-->
+        <!--<result column="QuestionProportion" property="QuestionProportion"/>-->
+        <!--<result column="ReportProportion" property="ReportProportion"/>-->
+        <!--<result column="TeamStartTime" property="TeamStartTime"/>-->
+        <!--<result column="TeamEndTime" property="TeamEndTime"/>-->
+        <!--<result column="TeamMinMember" property="TeamMinMember"/>-->
+        <!--<result column="TeamMaxMember" property="TeamMaxMember"/>-->
+        <!--<result column="ShareTeamStatus" property="ShareTeamStatus"/>-->
+        <!--<result column="ShareSeminarStatus" property="ShareSeminarStatus"/>-->
+    </resultMap>
 
-    <!--<insert id="createCourse" parameterType="com.example.gugubird.Model.NewCourseDTO">-->
-      <!--INSERT INTO course VALUES(#{courseName},#{courseIntroduction},#{teacherId},#{presentationProportion},#{questionProportion},#{reportProportion},-->
-      <!--#{teamStartTime},#{teamEndTime},#{teamMinMember},#{teamaMaxMember},#{shareTeamStatus},#{shareSeminarStatus})-->
-    <!--</insert>-->
+    <insert id="createCourse" parameterType="com.example.gugubird.Model.NewCourseDTO">
+        <selectKey keyProperty="CourseId" resultType="int">
+            select LAST_INSERT_ID()
+        </selectKey>
+      INSERT INTO course VALUES(#{courseName},#{courseIntroduction},#{teacherId},#{presentationProportion},#{questionProportion},#{reportProportion},
+      #{teamStartTime},#{teamEndTime},#{teamMinMember},#{teamaMaxMember},null ,null )
+    </insert>
 
 </mapper>

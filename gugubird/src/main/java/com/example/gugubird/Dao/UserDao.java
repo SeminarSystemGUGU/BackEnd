@@ -4,6 +4,7 @@ import com.example.gugubird.Entity.UserEntity;
 import com.example.gugubird.Mapper.UserMapper;
 import com.example.gugubird.Model.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -52,10 +53,10 @@ public class UserDao {
     };
 
     public boolean resetPassword(int userId){
-        return userMapper.resetPassword(userId);
+        return userMapper.resetPassword(userId,"123456");
     };
 
-    boolean editUser(int id,String userName,String userAccount,String userEmail){
+    public  boolean editUser(int id,String userName,String userAccount,String userEmail){
         return userMapper.editUser(id,userName,userAccount,userEmail);
     };
 
