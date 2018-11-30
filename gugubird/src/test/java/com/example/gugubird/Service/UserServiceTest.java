@@ -17,7 +17,7 @@ public class UserServiceTest {
     @Test
     public void loginTest()
     {
-        userService.login("12","12");
+        System.out.println(userService.login("12","12").getUserId());
     }
 
     @Test
