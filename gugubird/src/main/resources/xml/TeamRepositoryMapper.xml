@@ -16,8 +16,8 @@
         INSERT INTO team(TeamName,MemberNumber,TeamLeaderId,ClassId) VALUES (#{teamName},#{memberNumber},#{teamLeaderId},#{classId})
     </insert>
     
-    <insert id="addTo_student_class_team" parameterType="com.example.gugubird.Model.NewTeamDTO">
-        INSERT INTO student_class_team VALUES (#{studentId},#{classId},#{teamId},1)
+    <insert id="addTo_student_class_team" >
+        INSERT INTO student_class_team(StudentId,ClassId,isTeamLeader) VALUES (#{studentId},#{classId},1)
     </insert>
 
     <select id="getTeams" parameterType="Integer" resultMap="resultListTeam">

@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.gugubird.Model.NewTeacherDTO;
 import com.example.gugubird.Service.TeacherService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.web.bind.annotation.*;
 
 

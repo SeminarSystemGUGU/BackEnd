@@ -6,9 +6,13 @@ import com.example.gugubird.Dao.UserDao;
 import com.example.gugubird.Entity.TeamEntity;
 import com.example.gugubird.Entity.UserEntity;
 import com.example.gugubird.Model.NewTeamDTO;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Service
@@ -23,6 +27,8 @@ public class ClassService {
     @Autowired
     private UserDao userDao;
 
+    @Value("userId")
+    String userIdName;
 
     /*删除当前班级*/
     public boolean deleteClass(int classId){
@@ -30,9 +36,24 @@ public class ClassService {
     }
 
     /*在当前班级下创建小组*/
-    public boolean createTeam(int classId ,NewTeamDTO newTeamDTO){
+    public boolean createTeam(HttpServletRequest httpServletRequest,int classId , NewTeamDTO newTeamDTO){
         newTeamDTO.setClassId(classId);
-        return teamDao.createTeam(newTeamDTO);
+        Cookie[] cookies=httpServletRequest.getCookies();
+        for(Cookie cookie:cookies){   //获取teamLeadId
+            if(cookie.getName().equals(userIdName))
+                newTeamDTO.setTeamLeaderId(Integer.parseInt(cookie.getValue()));
+        }
+        newTeamDTO.setMemberNumber(newTeamDTO.getStudentNumber()+1);  //获取小组成员数量
+
+        if(!teamDao.createTeam(newTeamDTO))
+            return false;
+        if(!teamDao.addTo_student_class_team( newTeamDTO.getTeamLeaderId(), classId,1))
+            return false;
+        for(int i=0;i<newTeamDTO.getStudentNumber();i++){
+            if(!teamDao.addTo_student_class_team(newTeamDTO.getStudentId().get(i),classId,0))
+                return false;
+        }
+        return true;
     }
 
     /*获取当前班级下所有组队信息*/
@@ -41,8 +62,14 @@ public class ClassService {
     }
 
     /*获取当前班级下当前学生的组队信息*/
-    public List<TeamEntity> getStudentTeam(int classId,int studentId){
-        return teamDao.getStudentTeam(classId,studentId);
+    public List<TeamEntity> getStudentTeam(int classId,HttpServletRequest httpServletRequest){
+        Cookie[] cookies=httpServletRequest.getCookies();
+        for(Cookie cookie:cookies)
+            if(cookie.getName().equals(userIdName)){
+                int studentId=Integer.parseInt(cookie.getValue());
+                return teamDao.getStudentTeam(classId,studentId);
+            }
+        return null;
     }
 
     /*获取当前班级下未组队的学生信息*/

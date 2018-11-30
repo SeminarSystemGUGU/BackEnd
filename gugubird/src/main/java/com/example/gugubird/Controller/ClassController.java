@@ -8,6 +8,7 @@ import com.sun.org.apache.xpath.internal.operations.String;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -28,13 +29,13 @@ public class ClassController {
     }
 
     /**
-     * 在当前班级下新建小组
+     * 在当前班级下新建小组(测试未通过)
      * @param newTeamDTO
      * @return
      */
     @PostMapping("/{classId}/team")
-    public boolean createTeam(@PathVariable("classId") int classId,@RequestBody NewTeamDTO newTeamDTO){
-        return classService.createTeam(classId,newTeamDTO);
+    public boolean createTeam(HttpServletRequest httpServletRequest,@PathVariable("classId") int classId, @RequestBody NewTeamDTO newTeamDTO){
+        return classService.createTeam(httpServletRequest,classId,newTeamDTO);
     }
 
 
@@ -50,20 +51,32 @@ public class ClassController {
 
     /** 获取当前班级下当前学生的组队信息
      * @param classId
-     * @param studentId
+     * @param httpServletRequest
+     * @return
      */
     @GetMapping("/{classId}/studentTeam")
-    public List<TeamEntity> getStudentTeam(@PathVariable int classId,@RequestParam int studentId){
-        return classService.getStudentTeam(classId,studentId);
+   // public List<TeamEntity> getStudentTeam(@PathVariable int classId,@RequestParam int studentId){
+    public List<TeamEntity> getStudentTeam(@PathVariable int classId,HttpServletRequest httpServletRequest){
+        return classService.getStudentTeam(classId,httpServletRequest);
     }
 
 
     /** 获取当前班级下未组队的学生信息
      * @param classId
+     * @return
      */
     @GetMapping("/{classId}/student/notGroupStudent")
     public List<UserEntity> notGroupStudent(@PathVariable int classId){
         return classService.notGroupStudent(classId);
     }
 
+
+    /**在当前班级下新建通知
+     * @param
+     * @return
+     */
+    //@PostMapping("/{classId}/notice")
+    //public boolean newNotice(){
+
+    //}
 }

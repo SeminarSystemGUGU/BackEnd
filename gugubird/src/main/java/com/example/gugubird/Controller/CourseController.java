@@ -1,27 +1,25 @@
 package com.example.gugubird.Controller;
 
-import com.example.gugubird.Entity.CourseEntity;
-import com.example.gugubird.Entity.TeamEntity;
-import com.example.gugubird.Entity.UserEntity;
-import com.example.gugubird.Service.ClassService;
+import com.example.gugubird.Service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/course")
 public class CourseController {
 
+    @Autowired
+    private CourseService courseService;
+
     /**
      * 新建课程
-     * @param course
+     * @param newCourse
      * @return
      */
-    //@PostMapping("/createCourse")
-   // public boolean createCourse(CourseEntity course){
-    //    return false;
-   // }
+    @PostMapping("/")
+    public boolean createCourse(NewCourseDTO newCourse){
+        return courseService.createCourse(newCourse);
+    }
 
     /**
      * 获取学生所选的课程

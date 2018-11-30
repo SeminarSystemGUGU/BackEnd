@@ -39,6 +39,7 @@ public class TeacherService {
         Cookie[] cookies = httpServletRequest.getCookies();
         for (int i = 0; i < cookies.length; i++) {
             if (cookies[i].getName().equals(userIdName)) {
+                System.out.println(cookies[i]);
                 userId = cookies[i].getValue();
             }
         }

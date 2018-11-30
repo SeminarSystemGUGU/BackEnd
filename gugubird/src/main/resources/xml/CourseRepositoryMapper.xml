@@ -4,8 +4,9 @@
 <!-- 指定工作空间，要与接口名相同，源代码没有去看，猜测应该是通过"这里的namespace.下边方法的id"来定位方法的 -->
 <mapper namespace="com.example.gugubird.Mapper.CourseMapper">
 
-    <insert id="createCourse" parameterType="com.example.gugubird.Entity.CourseEntity">
-
-    </insert>
+    <!--<insert id="createCourse" parameterType="com.example.gugubird.Model.NewCourseDTO">-->
+      <!--INSERT INTO course VALUES(#{courseName},#{courseIntroduction},#{teacherId},#{presentationProportion},#{questionProportion},#{reportProportion},-->
+      <!--#{teamStartTime},#{teamEndTime},#{teamMinMember},#{teamaMaxMember},#{shareTeamStatus},#{shareSeminarStatus})-->
+    <!--</insert>-->
 
 </mapper>
