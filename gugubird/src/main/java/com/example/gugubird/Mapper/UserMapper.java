@@ -39,4 +39,5 @@ UserMapper {
 
     /*获取所有教师账号*/
     List<UserEntity> getTeachers();
+
 }

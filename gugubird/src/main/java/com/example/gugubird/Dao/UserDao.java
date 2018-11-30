@@ -13,6 +13,12 @@ public class UserDao {
     @Autowired
     UserMapper userMapper;
 
+    /**
+     * 用户登录
+     * @param account
+     * @param password
+     * @return
+     */
     public LoginVO login(String account, String password)
     {
         LoginVO loginVO=new LoginVO();
@@ -27,6 +33,7 @@ public class UserDao {
         return loginVO;
 
     }
+
 
     public List<UserEntity> getTeachers(){
         return userMapper.getTeachers();
@@ -56,4 +63,5 @@ public class UserDao {
     public List<UserEntity> notGroupStudent(int classId){
         return userMapper.notGroupStudent(classId);
     };
+
 }

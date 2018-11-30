@@ -8,6 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.gugubird.Model.NewTeacherDTO;
+import com.example.gugubird.Service.TeacherService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.web.bind.annotation.*;
+
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -19,6 +27,8 @@ TeacherController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    TeacherService teacherService;
 
 
     /**
@@ -28,6 +38,27 @@ TeacherController {
     @GetMapping("/")
     public List<UserEntity> getTeachers() {
         return userService.getTeachers();
+    }
+
+    /**
+     * 获取老师信息
+     * @return
+     */
+    @GetMapping("teacherInfo")
+    public UserEntity getTeacherInfo(HttpServletRequest httpServletRequest)
+    {
+        return teacherService.getTeacherInfo(httpServletRequest);
+    }
+
+    /**
+     * 新建教师信息
+     * @param newTeacherDTO
+     * @return
+     */
+    @PostMapping("/")
+    public boolean newTeacher(@RequestBody NewTeacherDTO newTeacherDTO)
+    {
+        return teacherService.newTeacher(newTeacherDTO);
     }
 
 }
