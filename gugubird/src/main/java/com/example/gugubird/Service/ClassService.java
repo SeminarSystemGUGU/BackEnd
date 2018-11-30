@@ -30,7 +30,8 @@ public class ClassService {
     }
 
     /*在当前班级下创建小组*/
-    public boolean createTeam(NewTeamDTO newTeamDTO){
+    public boolean createTeam(int classId ,NewTeamDTO newTeamDTO){
+        newTeamDTO.setClassId(classId);
         return teamDao.createTeam(newTeamDTO);
     }
 

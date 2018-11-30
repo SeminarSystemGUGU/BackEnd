@@ -22,19 +22,19 @@ public class ClassController {
      * @param classId
      * @return
      */
-    @DeleteMapping("/class/{classid}")
-   public boolean deleteClass(int classId){
+    @DeleteMapping("/{classId}")
+   public boolean deleteClass(@PathVariable int classId){
        return classService.deleteClass(classId);
     }
 
     /**
      * 在当前班级下新建小组
-     * @param teamEntity
+     * @param newTeamDTO
      * @return
      */
-    @PostMapping("/class/{classId}/team")
-    public boolean createTeam(NewTeamDTO newTeamDTO){
-        return classService.createTeam(newTeamDTO);
+    @PostMapping("/{classId}/team")
+    public boolean createTeam(@PathVariable("classId") int classId,@RequestBody NewTeamDTO newTeamDTO){
+        return classService.createTeam(classId,newTeamDTO);
     }
 
 
@@ -43,8 +43,8 @@ public class ClassController {
      * @param classId
      * @return
      */
-    @GetMapping("/class/{classId}/team")
-    public List<TeamEntity> getTeams(int classId){
+    @GetMapping("/{classId}/team")
+    public List<TeamEntity> getTeams(@PathVariable int classId){
         return classService.getTeams(classId);
     }
 
@@ -52,8 +52,8 @@ public class ClassController {
      * @param classId
      * @param studentId
      */
-    @GetMapping("/class/{classId}/studentTeam")
-    public List<TeamEntity> getStudentTeam(int classId,int studentId){
+    @GetMapping("/{classId}/studentTeam")
+    public List<TeamEntity> getStudentTeam(@PathVariable int classId,@RequestParam int studentId){
         return classService.getStudentTeam(classId,studentId);
     }
 
@@ -61,8 +61,8 @@ public class ClassController {
     /** 获取当前班级下未组队的学生信息
      * @param classId
      */
-    @GetMapping("/class/{classId}/student/notGroupStudent")
-    public List<UserEntity> notGroupStudent(int classId){
+    @GetMapping("/{classId}/student/notGroupStudent")
+    public List<UserEntity> notGroupStudent(@PathVariable int classId){
         return classService.notGroupStudent(classId);
     }
 
