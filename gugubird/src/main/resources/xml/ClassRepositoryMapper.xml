@@ -5,7 +5,7 @@
 <mapper namespace="com.example.gugubird.Mapper.ClassMapper">
 
     <delete id="deleteClass" parameterType="Integer">
-    DELETE FROM classes WHERE ClassId=#{arg0}
+      DELETE FROM classes WHERE ClassId=#{arg0}
     </delete>
 
 </mapper>
