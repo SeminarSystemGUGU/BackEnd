@@ -7,7 +7,6 @@ public class NewTeacherDTO {
     private String password;
     private String name;
     private String email;
-    private Integer status;
 
     public NewTeacherDTO getNewTeacherDTO()
     {
@@ -46,12 +45,4 @@ public class NewTeacherDTO {
     }
 
 
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
 }
