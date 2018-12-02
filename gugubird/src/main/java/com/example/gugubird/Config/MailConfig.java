@@ -1,6 +1,6 @@
 package com.example.gugubird.Config;
 /**
- * å‘é€é‚®ä»¶çš„é…ç½®ç±»
+ * ·¢ËÍÓÊ¼şµÄÅäÖÃÀà
  */
 
 import org.springframework.beans.factory.annotation.Value;
@@ -24,11 +24,11 @@ public class MailConfig {
     public JavaMailSenderImpl mailSenderConfig() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setDefaultEncoding("utf-8");
-        //é…ç½®é‚®ç®±ç”¨æˆ·
+        //ÅäÖÃÓÊÏäÓÃ»§
         mailSender.setUsername(username);
-        //é…ç½®é‚®ç®±å¯†ç 
+        //ÅäÖÃÓÊÏäÃÜÂë
         mailSender.setPassword(password);
-        //é…ç½®é‚®ç®±æœåŠ¡å™¨ï¼Œè¿™é‡Œæ˜¯ä¸ºäº†å‘é‚®ä»¶ï¼Œæ‰€ä»¥è¦é…ç½®çš„æ˜¯æ”¯æŒsmtpåè®®çš„é‚®ç®±æœåŠ¡å™¨ï¼Œå¯ä»¥åœ¨é‚®ç®±å®¢æˆ·ç«¯å¯»æ‰¾æœåŠ¡å™¨åœ°å€ä¿¡æ¯
+        //ÅäÖÃÓÊÏä·şÎñÆ÷£¬ÕâÀïÊÇÎªÁË·¢ÓÊ¼ş£¬ËùÒÔÒªÅäÖÃµÄÊÇÖ§³ÖsmtpĞ­ÒéµÄÓÊÏä·şÎñÆ÷£¬¿ÉÒÔÔÚÓÊÏä¿Í»§¶ËÑ°ÕÒ·şÎñÆ÷µØÖ·ĞÅÏ¢
         mailSender.setHost(host);
         Properties javaMailProperties = new Properties();
         javaMailProperties.setProperty("mail.smtp.auth", "true");

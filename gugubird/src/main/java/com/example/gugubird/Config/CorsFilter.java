@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * è·¨åŸŸé…ç½®ç±»
+ * ¿çÓòÅäÖÃÀà
  */
 @Component
 public class CorsFilter implements Filter {

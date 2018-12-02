@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 /**
- * å‘é€é‚®ä»¶çš„serviceç±»
+ * ·¢ËÍÓÊ¼şµÄserviceÀà
  */
 @Service
 public class EmailService {
