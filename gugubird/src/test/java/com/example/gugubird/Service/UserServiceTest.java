@@ -21,6 +21,14 @@ public class UserServiceTest {
     }
 
     @Test
+    public void testCache()
+    {
+        System.out.println(userMapper.searchUser("12").get(0).getPassword());
+        userMapper.resetPassword(12,"12");
+        System.out.println(userMapper.searchUser("12").get(0).getPassword());
+    }
+
+    @Test
     public void searchTest()
     {
         System.out.println(userMapper.searchUser("ÇñÐ¡Ã÷").get(0).getName());
