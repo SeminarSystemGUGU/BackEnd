@@ -2,7 +2,7 @@ package com.example.gugubird.Model;
 
 public class LoginVO {
     Integer userId;
-    boolean isSuccess;
+    boolean success;
 
     public Integer getUserId() {
         return userId;
@@ -12,11 +12,11 @@ public class LoginVO {
         this.userId = userId;
     }
 
-    public boolean isSuccess() {
-        return isSuccess;
+    public boolean getSuccess() {
+        return success;
     }
 
     public void setSuccess(boolean success) {
-        isSuccess = success;
+        this.success = success;
     }
 }
