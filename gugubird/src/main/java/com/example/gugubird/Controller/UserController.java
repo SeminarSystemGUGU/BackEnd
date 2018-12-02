@@ -66,7 +66,6 @@ public class UserController {
      */
     @PutMapping("/{userId}/userInfomation")
     public boolean editUser(@PathVariable("userId") int userId, @RequestBody EditUserDTO editUserDTO){
-        //return userService.editUser(userId,editUserDTO.getUserName(),editUserDTO.getUserAccount(),editUserDTO.getUserEmail());
         editUserDTO.setUserId(userId);
         return  userService.editUser(editUserDTO);
     }

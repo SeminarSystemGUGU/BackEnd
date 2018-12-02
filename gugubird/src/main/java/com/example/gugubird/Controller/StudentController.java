@@ -29,7 +29,7 @@ public class StudentController {
      * 获取所有学生账号
      * @return
      */
-    @GetMapping("/")
+    @GetMapping("")
     public List<UserEntity> getStudents(){
         return userService.getStudents();
     }
