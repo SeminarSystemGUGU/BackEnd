@@ -1,5 +1,7 @@
 package com.example.gugubird.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class CourseVO {
@@ -8,8 +10,11 @@ public class CourseVO {
     double ReportProportion;
     int minMember;
     int maxMember;
-    Date teamStartTime;
-    Date teamEndTime;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss a" , locale="zh" , timezone="GMT+8")
+    String  teamStartTime;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss a" , locale="zh" , timezone="GMT+8")
+    String teamEndTime;
 
     public double getPresentationProportion() {
         return PresentationProportion;
@@ -51,19 +56,19 @@ public class CourseVO {
         this.maxMember = maxMember;
     }
 
-    public Date getTeamStartTime() {
+    public String  getTeamStartTime() {
         return teamStartTime;
     }
 
-    public void setTeamStartTime(Date teamStartTime) {
+    public void setTeamStartTime(String  teamStartTime) {
         this.teamStartTime = teamStartTime;
     }
 
-    public Date getTeamEndTime() {
+    public String getTeamEndTime() {
         return teamEndTime;
     }
 
-    public void setTeamEndTime(Date teamEndTime) {
+    public void setTeamEndTime(String  teamEndTime) {
         this.teamEndTime = teamEndTime;
     }
 }

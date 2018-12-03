@@ -92,8 +92,8 @@ public class CourseController {
         courseVO.setMaxMember(6);
         String start="2018-10-11";
         String end="2018-10-18";
-        courseVO.setTeamStartTime(format1.parse(start));
-        courseVO.setTeamEndTime(format1.parse(end));
+        courseVO.setTeamStartTime(format1.format(start));
+        courseVO.setTeamEndTime(format1.format(end));
         return courseVO;
     }
 
