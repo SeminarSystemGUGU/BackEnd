@@ -5,6 +5,7 @@ import com.example.gugubird.Entity.CourseEntity;
 import com.example.gugubird.Model.NewCourseDTO;
 import com.example.gugubird.Model.NewCourseVO;
 import com.example.gugubird.Model.StudentCourseVO;
+import com.example.gugubird.Model.TeacherCourseVO;
 import com.example.gugubird.Service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,18 +20,18 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    /**
-     * ĞÂ½¨¿Î³Ì,·µ»ØĞÂ½¨¿Î³ÌµÄid
+    /**åˆ›å»ºè¯¾ç¨‹
+     *
      * @param newCourse
      * @return
      */
-    @PostMapping("/")
+    @PostMapping("")
     public NewCourseVO createCourse(HttpServletRequest httpServletRequest, @RequestBody NewCourseDTO newCourse){
         return courseService.createCourse(httpServletRequest,newCourse);
     }
 
-    /**
-     * »ñÈ¡Ñ§ÉúËùÑ¡µÄ¿Î³Ì
+    /**è·å–å­¦ç”Ÿæ‰€é€‰çš„è¯¾ç¨‹
+     *
      * @param httpServletRequest
      * @return
      */
@@ -53,20 +54,33 @@ public class CourseController {
     }
 
     /**
-     * ÀÏÊ¦»ñÈ¡Ëù½ÌÊÚµÄ¿Î³Ì
+     *æ•™å¸ˆæ•™æˆçš„è¯¾ç¨‹
      * @param httpServletRequest
      * @return
      */
-//    @GetMapping("/teacherCourse")
-//    public List<StudentCourseVO> getTeacherCourse(HttpServletRequest httpServletRequest){
-//
-//    }
+    @GetMapping("/teacherCourse")
+    public List<TeacherCourseVO> getTeacherCourse(HttpServletRequest httpServletRequest){
+        TeacherCourseVO teacherCourseVO=null;
+        teacherCourseVO.setCourseId(1);
+        teacherCourseVO.setCourseName("OOAD");
+        teacherCourseVO.setStatus(1);
+
+        TeacherCourseVO teacherCourseVO1=null;
+        teacherCourseVO1.setCourseId(2);
+        teacherCourseVO1.setCourseName("J2EE");
+        teacherCourseVO1.setStatus(0);
+
+        List<TeacherCourseVO> list=null;
+        list.add(teacherCourseVO);
+        list.add(teacherCourseVO1);
+        return list;
+    }
 
 
-    /**»ñÈ¡Ä³ÂÖÏÂµÄÌÖÂÛ¿ÎÁĞ±í
+    /**è·å–å½“å‰è¯¾ç¨‹ä¿¡æ¯
      *
      */
-//    @GetMapping("/{courseId}/round/{roundId}/seminar")
+//    @GetMapping("/{courseId}")
 //    public
 
 }

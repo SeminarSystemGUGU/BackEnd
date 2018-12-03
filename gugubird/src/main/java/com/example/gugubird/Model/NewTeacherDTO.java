@@ -7,7 +7,7 @@ public class NewTeacherDTO {
     private String password;
     private String name;
     private String email;
-    
+
 
     public NewTeacherDTO getNewTeacherDTO()
     {
