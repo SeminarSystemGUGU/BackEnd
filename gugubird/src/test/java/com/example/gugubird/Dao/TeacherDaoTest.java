@@ -24,7 +24,7 @@ public class TeacherDaoTest {
         NewTeacherDTO newTeacherDTO=new NewTeacherDTO();
         newTeacherDTO.setAccount("987");
         newTeacherDTO.setEmail("dsjafkka@qq.com");
-        newTeacherDTO.setName("Œ‚”∆");
+        newTeacherDTO.setName("qiuming");
         newTeacherDTO.setPassword("dkasfjka");
         teacherDao.newTeacher(newTeacherDTO);
     }

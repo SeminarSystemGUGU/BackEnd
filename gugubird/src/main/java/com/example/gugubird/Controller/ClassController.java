@@ -18,7 +18,7 @@ public class ClassController {
     private ClassService classService;
 
     /**
-     * 删除班级(只删除到team)
+     *
      * @param classId
      * @return
      */
@@ -28,7 +28,7 @@ public class ClassController {
     }
 
     /**
-     * 在当前班级下新建小组(测试未通过)
+     *
      * @param newTeamDTO
      * @return
      */
@@ -39,7 +39,7 @@ public class ClassController {
 
 
     /**
-     * 获取当前班级下所有组队信息
+     *
      * @param classId
      * @return
      */
@@ -49,7 +49,7 @@ public class ClassController {
     }
 
 
-    /** 获取当前班级下当前学生的组队信息
+    /**
      * @param classId
      * @param httpServletRequest
      * @return
@@ -60,7 +60,7 @@ public class ClassController {
     }
 
 
-    /** 获取当前班级下未组队的学生信息
+    /**
      * @param classId
      * @return
      */
@@ -70,7 +70,7 @@ public class ClassController {
     }
 
 
-    /**在当前班级下新建通知
+    /**
      * @param
      * @return
      */

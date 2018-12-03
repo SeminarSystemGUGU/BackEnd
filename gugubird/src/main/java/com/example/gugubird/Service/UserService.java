@@ -19,32 +19,31 @@ public class UserService {
     private UserDao userDao;
 
 
-    /*获取所有教师账号*/
     public List<UserEntity> getTeachers(){
         return userDao.getTeachers();
     }
 
-    /*获取所有学生账号*/
+
     public List<UserEntity> getStudents(){
         return userDao.getStudents();
     }
 
-    /*删除用户*/
+
     public boolean deleteUser(int para){
         return userDao.deleteUser(para);
     }
 
-    /*重置密码*/
+
     public boolean resetPassword(int userId){
         return userDao.resetPassword(userId);
     }
 
-    /*编辑用户信息*/
+
     public boolean editUser(EditUserDTO editUserDTO){
         return userDao.editUser(editUserDTO);
     }
 
-    /*搜索用户*/
+
     public List<UserEntity> searchUser(String role,String para) {
         if (para.equals("") && role.equals("Teacher"))
             return userDao.getTeachers();

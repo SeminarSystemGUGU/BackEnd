@@ -14,7 +14,6 @@ public class CourseDao {
     @Autowired
     private CourseMapper courseMapper;
 
-    /*新建课程*/
     public NewCourseVO createCourse(NewCourseDTO newCourseDTO){
         NewCourseVO newCourseVO=new NewCourseVO();
         newCourseVO.setCourseId(-1);
@@ -27,7 +26,7 @@ public class CourseDao {
     }
 
 
-    /*获取当前学生所选课程*/
+    /*锟斤拷取锟斤拷前学锟斤拷锟斤拷选锟轿筹拷*/
     public List<CourseEntity> getCourseOfStudent(int studentId){
         return courseMapper.getCourseOfStudent(studentId);
     }

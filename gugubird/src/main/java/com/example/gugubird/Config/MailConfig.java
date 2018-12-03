@@ -1,6 +1,6 @@
 package com.example.gugubird.Config;
 /**
- * 发送邮件的配置类
+ *
  */
 
 import org.springframework.beans.factory.annotation.Value;
@@ -24,11 +24,11 @@ public class MailConfig {
     public JavaMailSenderImpl mailSenderConfig() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setDefaultEncoding("utf-8");
-        //配置邮箱用户
+
         mailSender.setUsername(username);
-        //配置邮箱密码
+
         mailSender.setPassword(password);
-        //配置邮箱服务器，这里是为了发邮件，所以要配置的是支持smtp协议的邮箱服务器，可以在邮箱客户端寻找服务器地址信息
+
         mailSender.setHost(host);
         Properties javaMailProperties = new Properties();
         javaMailProperties.setProperty("mail.smtp.auth", "true");

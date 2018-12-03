@@ -61,7 +61,6 @@ public class UserDao {
         return userMapper.editUser(editUserDTO);
     };
 
-    /*获取当前班级下未组队学生信息*/
     public List<UserEntity> notGroupStudent(int classId){
         return userMapper.notGroupStudent(classId);
     };

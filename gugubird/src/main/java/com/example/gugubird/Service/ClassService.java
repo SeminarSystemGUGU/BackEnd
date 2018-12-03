@@ -30,20 +30,20 @@ public class ClassService {
     @Value("userId")
     String userIdName;
 
-    /*删除当前班级*/
+
     public boolean deleteClass(int classId){
         return classDao.deleteClass(classId);
     }
 
-    /*在当前班级下创建小组*/
+
     public boolean createTeam(HttpServletRequest httpServletRequest,int classId , NewTeamDTO newTeamDTO){
         newTeamDTO.setClassId(classId);
         Cookie[] cookies=httpServletRequest.getCookies();
-        for(Cookie cookie:cookies){   //获取teamLeadId
+        for(Cookie cookie:cookies){   //
             if(cookie.getName().equals(userIdName))
                 newTeamDTO.setTeamLeaderId(Integer.parseInt(cookie.getValue()));
         }
-        newTeamDTO.setMemberNumber(newTeamDTO.getStudentNumber()+1);  //获取小组成员数量
+        newTeamDTO.setMemberNumber(newTeamDTO.getStudentNumber()+1);  //
 
         if(!teamDao.createTeam(newTeamDTO))
             return false;
@@ -56,12 +56,10 @@ public class ClassService {
         return true;
     }
 
-    /*获取当前班级下所有组队信息*/
     public List<TeamEntity> getTeams(int classId){
         return teamDao.getTeams(classId);
     }
 
-    /*获取当前班级下当前学生的组队信息*/
     public List<TeamEntity> getStudentTeam(int classId,HttpServletRequest httpServletRequest){
         Cookie[] cookies=httpServletRequest.getCookies();
         for(Cookie cookie:cookies)
@@ -72,7 +70,6 @@ public class ClassService {
         return null;
     }
 
-    /*获取当前班级下未组队的学生信息*/
     public List<UserEntity> notGroupStudent(int classId){
         return userDao.notGroupStudent(classId);
     }

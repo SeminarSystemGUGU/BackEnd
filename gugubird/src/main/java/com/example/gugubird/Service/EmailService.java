@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 /**
- * 发送邮件的service类
+ *
  */
 @Service
 public class EmailService {

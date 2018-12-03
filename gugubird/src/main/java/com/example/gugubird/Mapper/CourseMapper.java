@@ -11,9 +11,7 @@ import java.util.List;
 @Repository
 public interface CourseMapper {
 
-    /*新建课程*/
     public int createCourse(NewCourseDTO newCourseDTO);
 
-    /*获取当前学生所选课程*/
     public List<CourseEntity> getCourseOfStudent(int studentId);
 }
