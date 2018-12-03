@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 /**
- * 发送邮件的service类
+ * @author ren
  */
 @Service
 public class EmailService {
     @Autowired
-    JavaMailSender MailSender;
+    JavaMailSender mailSender;
     public boolean sendSimpleEmail(String topic,String content,ArrayList<String> recepients)
     {
         try {
@@ -23,7 +23,7 @@ public class EmailService {
             message.setText(content);
             for (int i = 0; i < recepients.size(); i++) {
                 message.setTo(recepients.get(i));
-                MailSender.send(message);
+                mailSender.send(message);
             }
         }catch (Exception e)
         {

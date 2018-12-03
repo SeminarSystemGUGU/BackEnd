@@ -8,15 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * øÁ”Ú≈‰÷√¿‡
+ * @author ren
  */
 @Component
 public class CorsFilter implements Filter {
 
-    final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(CorsFilter.class);
 
 
-
+    @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
 
@@ -29,6 +28,8 @@ public class CorsFilter implements Filter {
         response.setHeader("Access-Control-Allow-Headers", "Content-Type,XFILENAME,XFILECATEGORY,XFILESIZE");
         chain.doFilter(req, res);
     }
+    @Override
     public void init(FilterConfig filterConfig) {}
+    @Override
     public void destroy() {}
 }

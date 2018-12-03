@@ -2,7 +2,7 @@ package com.example.gugubird.Model;
 
 public class NewCourseVO {
     int courseId;
-    boolean isSuccess;
+    boolean success;
 
     public int getCourseId() {
         return courseId;
@@ -13,10 +13,10 @@ public class NewCourseVO {
     }
 
     public boolean isSuccess() {
-        return isSuccess;
+        return success;
     }
 
     public void setSuccess(boolean success) {
-        isSuccess = success;
+        this.success = success;
     }
 }

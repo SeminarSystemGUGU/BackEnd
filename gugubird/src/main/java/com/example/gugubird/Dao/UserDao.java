@@ -16,7 +16,7 @@ public class UserDao {
     UserMapper userMapper;
 
     /**
-     * 鐢ㄦ埛鐧诲綍
+     * 閻€劍鍩涢惂璇茬秿
      * @param account
      * @param password
      * @return
@@ -25,10 +25,10 @@ public class UserDao {
     {
         LoginVO loginVO=new LoginVO();
         UserEntity userEntity=userMapper.findByAccountAndPassword(account,password);
-        if(userEntity==null)
+        if(userEntity==null) {
             loginVO.setSuccess(false);
-        else
-        {
+        }
+        else{
             loginVO.setSuccess(true);
             loginVO.setUserId(userEntity.getUserId());
         }
@@ -61,7 +61,7 @@ public class UserDao {
         return userMapper.editUser(editUserDTO);
     };
 
-    /*获取当前班级下未组队学生信息*/
+    /*鑾峰彇褰撳墠鐝骇涓嬫湭缁勯槦瀛︾敓淇℃伅*/
     public List<UserEntity> notGroupStudent(int classId){
         return userMapper.notGroupStudent(classId);
     };

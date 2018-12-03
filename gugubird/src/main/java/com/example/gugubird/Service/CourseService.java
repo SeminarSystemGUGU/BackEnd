@@ -21,24 +21,25 @@ public class CourseService {
     @Value("UserId")
     String userIdName;
 
-    /*创建课程*/
     public NewCourseVO createCourse(HttpServletRequest httpServletRequest, NewCourseDTO newCourseDTO){
         Cookie[] cookies=httpServletRequest.getCookies();
-        for(Cookie cookie:cookies)
-            if(cookie.getName().equals(userIdName))
+        for(Cookie cookie:cookies) {
+            if (cookie.getName().equals(userIdName)) {
                 newCourseDTO.setTeacherId(Integer.parseInt(cookie.getValue()));
+            }
+        }
         return courseDao.createCourse(newCourseDTO);
     }
-    /*获取学生所选的课程*/
+
     public List<CourseEntity> getCourseOfStudent(HttpServletRequest httpServletRequest){
-        int studentId; //当前登录的学生id
+        int studentId;
         Cookie[] cookies=httpServletRequest.getCookies();
-        for(Cookie cookie:cookies)
-            if(cookie.getName().equals(userIdName)){
-                studentId=Integer.parseInt(cookie.getValue());
+        for(Cookie cookie:cookies) {
+            if (cookie.getName().equals(userIdName)) {
+                studentId = Integer.parseInt(cookie.getValue());
                 return courseDao.getCourseOfStudent(studentId);
             }
-
+        }
         return null;
     }
 

@@ -14,13 +14,15 @@ public class ClassDao {
     private TeamMapper teamMapper;
 
 
-    /*É¾³ý°à¼¶*/
     public boolean deleteClass(int classId){
 
-        if(classMapper.deleteClass(classId)==true&&teamMapper.deleteTeamInClass(classId)==true)
+        if(classMapper.deleteClass(classId)==true&&teamMapper.deleteTeamInClass(classId)==true){
             return true;
-        else
+        }
+        else{
             return false;
+        }
+
     }
 
 }

@@ -43,8 +43,8 @@ public class UserController {
      */
     @DeleteMapping("/{userId}")
     public boolean deleteUser(@PathVariable String userId){
-        int Id=Integer.parseInt(userId);
-        return userService.deleteUser(Id);
+        int id=Integer.parseInt(userId);
+        return userService.deleteUser(id);
     }
 
 

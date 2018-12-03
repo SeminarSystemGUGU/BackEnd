@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TeacherMapper {
     @Select("select * from user where USERID=#{arg0} AND ROLE='Teacher'")
-    UserEntity findTeacherByUserId(int UserId);
+    UserEntity findTeacherByUserId(int userId);
 
    void newTeacher(NewTeacherDTO newTeacherDTO);
 }

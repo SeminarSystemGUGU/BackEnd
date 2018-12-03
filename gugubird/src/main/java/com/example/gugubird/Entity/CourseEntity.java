@@ -4,121 +4,121 @@ import java.util.Date;
 
 public class CourseEntity {
 
-    private int CourseId;
-    private String CourseName;
-    private String CourseIntroduction;
-    private int TeacherId;
-    private float PresentationProportion;
-    private float QuestionProportion;
-    private float ReportProportion;
-    private Date TeamStartTime;
-    private Date TeamEndTime;
-    private int TeamMinMember;
-    private int TeamMaxMember;
-    private int ShareTeamStatus;
-    private int ShareSeminarStatus;
+    private int courseId;
+    private String courseName;
+    private String courseIntroduction;
+    private int teacherId;
+    private float presentationProportion;
+    private float questionProportion;
+    private float reportProportion;
+    private Date teamStartTime;
+    private Date teamEndTime;
+    private int teamMinMember;
+    private int teamMaxMember;
+    private int shareTeamStatus;
+    private int shareSeminarStatus;
 
     public int getCourseId() {
-        return CourseId;
+        return courseId;
     }
 
     public void setCourseId(int courseId) {
-        CourseId = courseId;
+        this.courseId = courseId;
     }
 
     public String getCourseName() {
-        return CourseName;
+        return courseName;
     }
 
     public void setCourseName(String courseName) {
-        CourseName = courseName;
+        this.courseName = courseName;
     }
 
     public String getCourseIntroduction() {
-        return CourseIntroduction;
+        return courseIntroduction;
     }
 
     public void setCourseIntroduction(String courseIntroduction) {
-        CourseIntroduction = courseIntroduction;
+        this.courseIntroduction = courseIntroduction;
     }
 
     public int getTeacherId() {
-        return TeacherId;
+        return teacherId;
     }
 
     public void setTeacherId(int teacherId) {
-        TeacherId = teacherId;
+        this.teacherId = teacherId;
     }
 
     public float getPresentationProportion() {
-        return PresentationProportion;
+        return presentationProportion;
     }
 
     public void setPresentationProportion(float presentationProportion) {
-        this.PresentationProportion = presentationProportion;
+        this.presentationProportion = presentationProportion;
     }
 
     public float getQuestionProportion() {
-        return QuestionProportion;
+        return questionProportion;
     }
 
     public void setQuestionProportion(float questionProportion) {
-        QuestionProportion = questionProportion;
+        this.questionProportion = questionProportion;
     }
 
     public float getReportProportion() {
-        return ReportProportion;
+        return reportProportion;
     }
 
     public void setReportProportion(float reportProportion) {
-        ReportProportion = reportProportion;
+        this.reportProportion = reportProportion;
     }
 
     public Date getTeamStartTime() {
-        return TeamStartTime;
+        return teamStartTime;
     }
 
     public void setTeamStartTime(Date teamStartTime) {
-        TeamStartTime = teamStartTime;
+        this.teamStartTime = teamStartTime;
     }
 
     public Date getTeamEndTime() {
-        return TeamEndTime;
+        return teamEndTime;
     }
 
     public void setTeamEndTime(Date teamEndTime) {
-        TeamEndTime = teamEndTime;
+        this.teamEndTime = teamEndTime;
     }
 
     public int getTeamMinMember() {
-        return TeamMinMember;
+        return teamMinMember;
     }
 
     public void setTeamMinMember(int teamMinMember) {
-        TeamMinMember = teamMinMember;
+        this.teamMinMember = teamMinMember;
     }
 
     public int getTeamMaxMember() {
-        return TeamMaxMember;
+        return teamMaxMember;
     }
 
     public void setTeamMaxMember(int teamMaxMember) {
-        TeamMaxMember = teamMaxMember;
+        this.teamMaxMember = teamMaxMember;
     }
 
     public int getShareTeamStatus() {
-        return ShareTeamStatus;
+        return shareTeamStatus;
     }
 
     public void setShareTeamStatus(int shareTeamStatus) {
-        ShareTeamStatus = shareTeamStatus;
+        this.shareTeamStatus = shareTeamStatus;
     }
 
     public int getShareSeminarStatus() {
-        return ShareSeminarStatus;
+        return shareSeminarStatus;
     }
 
     public void setShareSeminarStatus(int shareSeminarStatus) {
-        ShareSeminarStatus = shareSeminarStatus;
+        this.shareSeminarStatus = shareSeminarStatus;
     }
 }
