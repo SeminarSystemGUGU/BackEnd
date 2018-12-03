@@ -29,7 +29,7 @@ public class TeacherService {
     }
 
     /**
-     * è·å–è€å¸ˆçš„ä¸ªäººä¿¡æ¯
+     * »ñÈ¡ÀÏÊ¦µÄ¸öÈËĞÅÏ¢
      *
      * @param httpServletRequest
      * @return
@@ -46,7 +46,7 @@ public class TeacherService {
     }
 
     /**
-     * æ–°å»ºæ•™å¸ˆä¿¡æ¯
+     * ĞÂ½¨½ÌÊ¦ĞÅÏ¢
      * @param newTeacherDTO
      * @return
      */
@@ -56,7 +56,7 @@ public class TeacherService {
             teacherDao.newTeacher(newTeacherDTO);
         }catch (Exception e)
         {
-            System.out.println(e);
+            System.out.println(e.toString());
             return false;
         }
         return true;

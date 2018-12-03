@@ -7,7 +7,7 @@ public class NewTeacherDTO {
     private String password;
     private String name;
     private String email;
-
+    
 
     public NewTeacherDTO getNewTeacherDTO()
     {
@@ -44,5 +44,6 @@ public class NewTeacherDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+
 
 }

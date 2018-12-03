@@ -15,15 +15,15 @@ public class BrowerSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin()//  å®šä¹‰å½“éœ€è¦ç”¨æˆ·ç™»å½•æ—¶å€™ï¼Œè½¬åˆ°çš„ç™»å½•é¡µé¢ã€‚
+        http.formLogin()//  ¶¨Òåµ±ĞèÒªÓÃ»§µÇÂ¼Ê±ºò£¬×ªµ½µÄµÇÂ¼Ò³Ãæ¡£
                 //.loginPage("http://localhost:8080/user/login")
                 .and()
-                .rememberMe()//æä¾›è®°ä½è´¦å·å¯†ç çš„åŠŸèƒ½
+                .rememberMe()//Ìá¹©¼Ç×¡ÕËºÅÃÜÂëµÄ¹¦ÄÜ
                 .and()
-                .authorizeRequests()        // å®šä¹‰å“ªäº›URLéœ€è¦è¢«ä¿æŠ¤ã€å“ªäº›ä¸éœ€è¦è¢«ä¿æŠ¤
+                .authorizeRequests()        // ¶¨ÒåÄÄĞ©URLĞèÒª±»±£»¤¡¢ÄÄĞ©²»ĞèÒª±»±£»¤
                // .antMatchers("/test/nice").hasRole("Teacher")
                 .antMatchers("/**").permitAll()
-                .anyRequest()               // ä»»ä½•è¯·æ±‚,ç™»å½•åå¯ä»¥è®¿é—®
+                .anyRequest()               // ÈÎºÎÇëÇó,µÇÂ¼ºó¿ÉÒÔ·ÃÎÊ
                 .authenticated()
                 .and()
                 .csrf().disable();
