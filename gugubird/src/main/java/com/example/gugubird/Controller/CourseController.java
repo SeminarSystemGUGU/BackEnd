@@ -2,15 +2,15 @@ package com.example.gugubird.Controller;
 
 import com.example.gugubird.Entity.ClassEntity;
 import com.example.gugubird.Entity.CourseEntity;
-import com.example.gugubird.Model.NewCourseDTO;
-import com.example.gugubird.Model.NewCourseVO;
-import com.example.gugubird.Model.StudentCourseVO;
-import com.example.gugubird.Model.TeacherCourseVO;
+import com.example.gugubird.Model.*;
 import com.example.gugubird.Service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @RestController
@@ -78,9 +78,22 @@ public class CourseController {
 
 
     /**获取当前课程信息
-     *
+     * @param courseId
      */
-//    @GetMapping("/{courseId}")
-//    public
+    @GetMapping("/{courseId}")
+    public CourseVO nowCourseInfo(@PathVariable int courseId) throws ParseException {
+        DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+        CourseVO courseVO=null;
+        courseVO.setPresentationProportion(0.5);
+        courseVO.setQuestionProportion(0.2);
+        courseVO.setReportProportion(0.3);
+        courseVO.setMinMember(3);
+        courseVO.setMaxMember(6);
+        String start="2018-10-11";
+        String end="2018-10-18";
+        courseVO.setTeamStartTime(format1.parse(start));
+        courseVO.setTeamEndTime(format1.parse(end));
+        return courseVO;
+    }
 
 }
