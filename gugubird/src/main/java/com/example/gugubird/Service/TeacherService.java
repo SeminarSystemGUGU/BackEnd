@@ -29,7 +29,7 @@ public class TeacherService {
     }
 
     /**
-     * 获取老师的个人信息
+     *
      *
      * @param httpServletRequest
      * @return
@@ -46,7 +46,7 @@ public class TeacherService {
     }
 
     /**
-     * 新建教师信息
+     *
      * @param newTeacherDTO
      * @return
      */
@@ -56,7 +56,7 @@ public class TeacherService {
             teacherDao.newTeacher(newTeacherDTO);
         }catch (Exception e)
         {
-            System.out.println(e);
+            System.out.println(e.toString());
             return false;
         }
         return true;

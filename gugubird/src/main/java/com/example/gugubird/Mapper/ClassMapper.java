@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ClassMapper {
 
-    /*É¾³ý°à¼¶*/
+
     public boolean deleteClass(int classId);
 
 }

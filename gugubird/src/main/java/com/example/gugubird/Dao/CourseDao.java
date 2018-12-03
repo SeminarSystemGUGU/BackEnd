@@ -18,16 +18,15 @@ public class CourseDao {
         NewCourseVO newCourseVO=new NewCourseVO();
         newCourseVO.setCourseId(-1);
         newCourseVO.setCourseId(courseMapper.createCourse(newCourseDTO));
-        if(newCourseVO.getCourseId()!=-1) {
+        if(newCourseVO.getCourseId()!=-1)
             newCourseVO.setSuccess(true);
-        }
-        else {
+        else
             newCourseVO.setSuccess(false);
-        }
         return newCourseVO;
     }
 
 
+    /*��ȡ��ǰѧ����ѡ�γ�*/
     public List<CourseEntity> getCourseOfStudent(int studentId){
         return courseMapper.getCourseOfStudent(studentId);
     }

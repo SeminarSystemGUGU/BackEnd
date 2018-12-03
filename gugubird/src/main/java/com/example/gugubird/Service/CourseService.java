@@ -23,23 +23,20 @@ public class CourseService {
 
     public NewCourseVO createCourse(HttpServletRequest httpServletRequest, NewCourseDTO newCourseDTO){
         Cookie[] cookies=httpServletRequest.getCookies();
-        for(Cookie cookie:cookies) {
-            if (cookie.getName().equals(userIdName)) {
+        for(Cookie cookie:cookies)
+            if(cookie.getName().equals(userIdName))
                 newCourseDTO.setTeacherId(Integer.parseInt(cookie.getValue()));
-            }
-        }
         return courseDao.createCourse(newCourseDTO);
     }
-
     public List<CourseEntity> getCourseOfStudent(HttpServletRequest httpServletRequest){
         int studentId;
         Cookie[] cookies=httpServletRequest.getCookies();
-        for(Cookie cookie:cookies) {
-            if (cookie.getName().equals(userIdName)) {
-                studentId = Integer.parseInt(cookie.getValue());
+        for(Cookie cookie:cookies)
+            if(cookie.getName().equals(userIdName)){
+                studentId=Integer.parseInt(cookie.getValue());
                 return courseDao.getCourseOfStudent(studentId);
             }
-        }
+
         return null;
     }
 

@@ -4,10 +4,10 @@ import com.example.gugubird.Entity.ClassEntity;
 
 import java.util.List;
 
-public class StudentCourseVO {
+public class TeacherCourseVO {
     int courseId;
     String courseName;
-    List<ClassEntity> classes;
+    int status;
 
     public int getCourseId() {
         return courseId;
@@ -25,11 +25,11 @@ public class StudentCourseVO {
         this.courseName = courseName;
     }
 
-    public List<ClassEntity> getClasses() {
-        return classes;
+    public int getStatus() {
+        return status;
     }
 
-    public void setClasses(List<ClassEntity> classes) {
-        this.classes = classes;
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

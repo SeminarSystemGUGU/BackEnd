@@ -29,7 +29,6 @@ public class TeamDao {
         return teamMapper.getTeams(classId);
     }
 
-
     public List<TeamEntity> getStudentTeam(int classId,int studentId){
         int teamId=teamMapper.teamIdOfStudent(classId,studentId);
         return teamMapper.getStudentTeam(classId,teamId);

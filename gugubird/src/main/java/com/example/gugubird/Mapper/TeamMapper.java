@@ -15,23 +15,21 @@ import java.util.List;
 public interface
 TeamMapper {
 
-    /*创建小组*/
+
     public boolean createTeam(NewTeamDTO newTeamDTO);
 
-    /*创建小组时写入student_class_team表中*/
+
     public boolean addTo_student_class_team(@Param("studentId")int studentId,@Param("classId")int classId,@Param("isTeamLeader") int isLeader);
 
-    /*获取当前班级下所有组队信息*/
+
     public List<TeamEntity> getTeams(int classId);
 
-    /*删除当前班级下所有小组*/
+
     public boolean deleteTeamInClass(int classId);
 
 
-    /*获取当前班级下当前学生的组队信息*/
     public List<TeamEntity> getStudentTeam(int classId,int teamId);
 
-    /*获取当前学生对应的teamId*/
     public int teamIdOfStudent(int classId,int studentId);
 
 }

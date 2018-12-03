@@ -5,6 +5,6 @@
 <mapper namespace="com.example.gugubird.Mapper.TeacherMapper">
 
     <insert id="newTeacher" useGeneratedKeys="true" parameterType="com.example.gugubird.Model.NewTeacherDTO">
-        insert into user(ACCOUNT,PASSWORD,NAME,ROLE,EMAIL,STATUS) values(#{account},#{password},#{name},'Teacher',#{email},#{status})
+        insert into user(ACCOUNT,PASSWORD,NAME,ROLE,EMAIL,STATUS) values(#{account},#{password},#{name},'Teacher',#{email},0)
     </insert>
 </mapper>

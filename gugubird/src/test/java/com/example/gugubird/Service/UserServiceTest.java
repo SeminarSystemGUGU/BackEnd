@@ -23,6 +23,6 @@ public class UserServiceTest {
     @Test
     public void searchTest()
     {
-        System.out.println(userMapper.searchUser("邱小明").get(0).getName());
+        System.out.println(userMapper.searchUser("qiuming").get(0).getName());
     }
 }

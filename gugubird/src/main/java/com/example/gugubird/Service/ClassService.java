@@ -30,6 +30,7 @@ public class ClassService {
     @Value("userId")
     String userIdName;
 
+
     public boolean deleteClass(int classId){
         return classDao.deleteClass(classId);
     }
@@ -38,23 +39,19 @@ public class ClassService {
     public boolean createTeam(HttpServletRequest httpServletRequest,int classId , NewTeamDTO newTeamDTO){
         newTeamDTO.setClassId(classId);
         Cookie[] cookies=httpServletRequest.getCookies();
-        for(Cookie cookie:cookies){
-            if(cookie.getName().equals(userIdName)){
+        for(Cookie cookie:cookies){   //
+            if(cookie.getName().equals(userIdName))
                 newTeamDTO.setTeamLeaderId(Integer.parseInt(cookie.getValue()));
-            }
         }
-        newTeamDTO.setMemberNumber(newTeamDTO.getStudentNumber()+1);
+        newTeamDTO.setMemberNumber(newTeamDTO.getStudentNumber()+1);  //
 
-        if(!teamDao.createTeam(newTeamDTO)) {
+        if(!teamDao.createTeam(newTeamDTO))
             return false;
-        }
-        if(!teamDao.addTo_student_class_team( newTeamDTO.getTeamLeaderId(), classId,1)) {
+        if(!teamDao.addTo_student_class_team( newTeamDTO.getTeamLeaderId(), classId,1))
             return false;
-        }
         for(int i=0;i<newTeamDTO.getStudentNumber();i++){
-            if(!teamDao.addTo_student_class_team(newTeamDTO.getStudentId().get(i),classId,0)) {
+            if(!teamDao.addTo_student_class_team(newTeamDTO.getStudentId().get(i),classId,0))
                 return false;
-            }
         }
         return true;
     }
@@ -65,12 +62,11 @@ public class ClassService {
 
     public List<TeamEntity> getStudentTeam(int classId,HttpServletRequest httpServletRequest){
         Cookie[] cookies=httpServletRequest.getCookies();
-        for(Cookie cookie:cookies) {
-            if (cookie.getName().equals(userIdName)) {
-                int studentId = Integer.parseInt(cookie.getValue());
-                return teamDao.getStudentTeam(classId, studentId);
+        for(Cookie cookie:cookies)
+            if(cookie.getName().equals(userIdName)){
+                int studentId=Integer.parseInt(cookie.getValue());
+                return teamDao.getStudentTeam(classId,studentId);
             }
-        }
         return null;
     }
 

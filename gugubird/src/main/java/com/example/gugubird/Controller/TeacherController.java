@@ -53,7 +53,7 @@ TeacherController {
      * @param newTeacherDTO
      * @return
      */
-    @PostMapping("/")
+    @PostMapping("")
     public boolean newTeacher(@RequestBody NewTeacherDTO newTeacherDTO)
     {
         return teacherService.newTeacher(newTeacherDTO);
