@@ -17,28 +17,28 @@ UserMapper {
 
      UserEntity findAccount(String account);
 
-    /*»ñÈ¡ËùÓĞÑ§ÉúĞÅÏ¢*/
+    /*è·å–æ‰€æœ‰å­¦ç”Ÿä¿¡æ¯*/
      List<UserEntity> getStudents();
 
-    /*ËÑË÷ÓÃ»§ÕËºÅ*/
+    /*æœç´¢ç”¨æˆ·è´¦å·*/
      List<UserEntity> searchUser(@Param("para") String para);
 
-    /*É¾³ıÓÃ»§*/
+    /*åˆ é™¤ç”¨æˆ·*/
      boolean deleteUser(@Param("para") int para);
 
-    /*ÖØÖÃÃÜÂë*/
+    /*é‡ç½®å¯†ç */
       boolean resetPassword(@Param("userId") int userId);
 
-    /*±à¼­ÓÃ»§ÕËºÅĞÅÏ¢*/
+    /*ç¼–è¾‘ç”¨æˆ·è´¦å·ä¿¡æ¯*/
      boolean editUser(EditUserDTO editUserDTO);
 
     @Select("select * from user where ACCOUNT=#{account} and PASSWORD=#{password}")
      UserEntity findByAccountAndPassword(@Param("account") String account,@Param("password") String password);
 
-    /*»ñÈ¡µ±Ç°°à¼¶ÏÂÎ´×é¶ÓÑ§ÉúĞÅÏ¢*/
+    /*è·å–å½“å‰ç­çº§ä¸‹æœªç»„é˜Ÿå­¦ç”Ÿä¿¡æ¯*/
     List<UserEntity> notGroupStudent(int classId);
 
-    /*»ñÈ¡ËùÓĞ½ÌÊ¦ÕËºÅ*/
+    /*è·å–æ‰€æœ‰æ•™å¸ˆè´¦å·*/
     List<UserEntity> getTeachers();
 
 }

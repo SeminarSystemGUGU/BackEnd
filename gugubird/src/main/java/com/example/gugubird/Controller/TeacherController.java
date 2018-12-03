@@ -30,7 +30,7 @@ TeacherController {
 
 
     /**
-     * »ñÈ¡ËùÓĞ½ÌÊ¦ÕËºÅ
+     * è·å–æ‰€æœ‰æ•™å¸ˆè´¦å·
      * @return
      */
     @GetMapping("")
@@ -39,7 +39,7 @@ TeacherController {
     }
 
     /**
-     * »ñÈ¡½ÌÊ¦ĞÅÏ¢
+     * è·å–æ•™å¸ˆä¿¡æ¯
      * @return
      */
     @GetMapping("/teacherInfo")
@@ -49,7 +49,7 @@ TeacherController {
     }
 
     /**
-     * ´´½¨½ÌÊ¦ÕËºÅ
+     * åˆ›å»ºæ•™å¸ˆè´¦å·
      * @param newTeacherDTO
      * @return
      */
