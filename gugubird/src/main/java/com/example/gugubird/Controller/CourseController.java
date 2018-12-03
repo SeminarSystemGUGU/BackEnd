@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -37,17 +38,17 @@ public class CourseController {
      */
     @GetMapping("/studentCourse")
     public List<StudentCourseVO> getCourseOfStudent(HttpServletRequest httpServletRequest){
-        StudentCourseVO studentCourseVO=null;
+        StudentCourseVO studentCourseVO=new StudentCourseVO();
         studentCourseVO.setCourseId(1);
         studentCourseVO.setCourseName("OOAD");
-        ClassEntity classEntity=null;
+        ClassEntity classEntity=new ClassEntity();
         classEntity.setClassId(1);
         classEntity.setClassName("2016-1");
-        List<ClassEntity> list=null;
+        List<ClassEntity> list=new ArrayList<ClassEntity>();
         list.add(classEntity);
         studentCourseVO.setClasses(list);
 
-        List<StudentCourseVO> list1=null;
+        List<StudentCourseVO> list1=new ArrayList<StudentCourseVO>();
         list1.add(studentCourseVO);
         return list1;
         //return courseService.getCourseOfStudent(httpServletRequest);
@@ -60,17 +61,17 @@ public class CourseController {
      */
     @GetMapping("/teacherCourse")
     public List<TeacherCourseVO> getTeacherCourse(HttpServletRequest httpServletRequest){
-        TeacherCourseVO teacherCourseVO=null;
+        TeacherCourseVO teacherCourseVO=new TeacherCourseVO();
         teacherCourseVO.setCourseId(1);
         teacherCourseVO.setCourseName("OOAD");
         teacherCourseVO.setStatus(1);
 
-        TeacherCourseVO teacherCourseVO1=null;
+        TeacherCourseVO teacherCourseVO1=new TeacherCourseVO();
         teacherCourseVO1.setCourseId(2);
         teacherCourseVO1.setCourseName("J2EE");
         teacherCourseVO1.setStatus(0);
 
-        List<TeacherCourseVO> list=null;
+        List<TeacherCourseVO> list=new ArrayList<TeacherCourseVO>();
         list.add(teacherCourseVO);
         list.add(teacherCourseVO1);
         return list;
@@ -83,7 +84,7 @@ public class CourseController {
     @GetMapping("/{courseId}")
     public CourseVO nowCourseInfo(@PathVariable int courseId) throws ParseException {
         DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-        CourseVO courseVO=null;
+        CourseVO courseVO=new CourseVO();
         courseVO.setPresentationProportion(0.5);
         courseVO.setQuestionProportion(0.2);
         courseVO.setReportProportion(0.3);
