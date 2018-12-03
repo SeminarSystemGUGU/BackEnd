@@ -97,4 +97,28 @@ public class CourseController {
         return courseVO;
     }
 
+
+    /**获取当前课程下所有班级信息
+     * @param courseId
+     */
+    @GetMapping("/{courseId}/class")
+    public List<ClassVO> allClassedInCourse(@PathVariable int courseId){
+        ClassVO classVO=new ClassVO();
+        classVO.setClassName("2016级1班");
+        classVO.setSeminarTime("周三78节");
+        classVO.setSeminatPosition("海韵301");
+        classVO.setFileName("周三78节.xlsx");
+
+        ClassVO classVO1=new ClassVO();
+        classVO1.setClassName("2016级2班");
+        classVO1.setSeminarTime("周三56节");
+        classVO1.setSeminatPosition("公寓306");
+        classVO1.setFileName("周三56节.xlsx");
+
+        List<ClassVO> list=new ArrayList<ClassVO>();
+        list.add(classVO);
+        list.add(classVO1);
+        return list;
+    }
+
 }
