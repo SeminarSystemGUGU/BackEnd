@@ -121,22 +121,22 @@ public class CourseController {
         return list;
     }
 
-    /**获取该课程所有共享分组的课程
+    /**获取该课程下共享信息的课程
      * @param courseId
-     * @return 
+     * @return
      */
     @GetMapping("/{courseId}/shareCourse")
     public List<ShareCourseVO> getShareCourse(@PathVariable int courseId){
       ShareCourseVO shareCourseVO=new ShareCourseVO();
       shareCourseVO.setCourseName("J2EE");
       shareCourseVO.setTeacherName("邱明老师");
-      shareCourseVO.setShareType(1);
+      shareCourseVO.setShareType("共享讨论课");
       shareCourseVO.setShareSituation(1);
 
       ShareCourseVO shareCourseVO1=new ShareCourseVO();
       shareCourseVO1.setCourseName("软件工程");
       shareCourseVO1.setTeacherName("王美红老师");
-      shareCourseVO1.setShareType(0);
+      shareCourseVO1.setShareType("共享分组");
       shareCourseVO1.setShareSituation(0);
 
       List<ShareCourseVO> list=new ArrayList<ShareCourseVO>();

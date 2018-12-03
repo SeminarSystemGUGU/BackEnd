@@ -3,7 +3,7 @@ package com.example.gugubird.Model;
 public class ShareCourseVO {
   String courseName;
   String teacherName;
-  int shareType;
+  String shareType;
   int shareSituation;
 
     public String getCourseName() {
@@ -22,11 +22,11 @@ public class ShareCourseVO {
         this.teacherName = teacherName;
     }
 
-    public int getShareType() {
+    public String  getShareType() {
         return shareType;
     }
 
-    public void setShareType(int shareTyep) {
+    public void setShareType(String  shareTyep) {
         this.shareType = shareTyep;
     }
 
