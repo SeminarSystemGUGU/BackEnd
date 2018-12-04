@@ -6,10 +6,12 @@ import com.example.gugubird.Service.StudentService;
 import com.example.gugubird.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -34,9 +36,11 @@ public class StudentController {
         return userService.getStudents();
     }
 
+
      @GetMapping("studentInfo")
     public UserEntity getStudentInfo(HttpServletRequest httpServletRequest)
      {
-         return studentService.getStudentInfo(httpServletRequest);
+         UserEntity userEntity=new UserEntity();
+         return userEntity;
      }
 }
