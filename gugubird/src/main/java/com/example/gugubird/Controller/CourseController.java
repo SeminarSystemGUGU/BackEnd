@@ -4,6 +4,7 @@ import com.example.gugubird.Entity.ClassEntity;
 import com.example.gugubird.Entity.CourseEntity;
 import com.example.gugubird.Model.*;
 import com.example.gugubird.Service.CourseService;
+import com.sun.javafx.geom.Vec2d;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 @RestController
 @RequestMapping("/course")
@@ -44,12 +46,28 @@ public class CourseController {
         ClassEntity classEntity=new ClassEntity();
         classEntity.setClassId(1);
         classEntity.setClassName("2016-1");
+        classEntity.setClassTime("周五七八节课");
+        classEntity.setClassPosition("海韵教学楼301");
         List<ClassEntity> list=new ArrayList<ClassEntity>();
         list.add(classEntity);
         studentCourseVO.setClasses(list);
-
         List<StudentCourseVO> list1=new ArrayList<StudentCourseVO>();
         list1.add(studentCourseVO);
+
+        StudentCourseVO studentCourseVO1=new StudentCourseVO();
+        studentCourseVO1.setCourseId(2);
+        studentCourseVO1.setCourseName("J2EE");
+        ClassEntity classEntity1=new ClassEntity();
+        classEntity1.setClassName("2016-1");
+        classEntity1.setClassId(2);
+        classEntity1.setClassPosition("海韵教学楼101");
+        classEntity1.setClassTime("周三三四节课");
+        List<ClassEntity> list2=new ArrayList<>();
+        list2.add(classEntity1);
+        studentCourseVO1.setClasses(list2);
+        list1.add(studentCourseVO1);
+
+
         return list1;
         //return courseService.getCourseOfStudent(httpServletRequest);
     }
@@ -145,6 +163,50 @@ public class CourseController {
       return list;
     }
 
+    @GetMapping("/{courseId}/round")
+    public List<RoundVO> getRound(@PathVariable("courseId") String courseId)
+    {
+        List<RoundVO> list= new Vector<>();
+        RoundVO roundVO=new RoundVO();
+        roundVO.setRoundId(1);
+        roundVO.setRoundName("第一轮");
+        SeminarVO seminarVO=new SeminarVO();
+        seminarVO.setReportEndTime("2018-12-29");
+        seminarVO.setTime("2018-12-20 七八节课");
+        seminarVO.setSeminarTopic("springboot详解");
+        seminarVO.setSeminarContent("详细介绍springboot");
+        seminarVO.setSeminarId(1);
+        List<SeminarVO> seminarVOS=new Vector<>();
+        seminarVOS.add(seminarVO);
+        roundVO.setList(seminarVOS);
+        list.add(roundVO);
+        list.add(roundVO);
+        return list;
+    }
+
+    @GetMapping("/{courseId}/roundSigned")
+    public List<RoundVO> getRoundSigned(@PathVariable("courseId") String courseId)
+    {
+        List<RoundVO> list= new Vector<>();
+        RoundVO roundVO=new RoundVO();
+        roundVO.setRoundId(1);
+        roundVO.setRoundName("第一轮");
+        SeminarVO seminarVO=new SeminarVO();
+        seminarVO.setReportEndTime("2018-12-29");
+        seminarVO.setTime("2018-12-20 七八节课");
+        seminarVO.setSeminarTopic("springboot详解");
+        seminarVO.setSeminarContent("详细介绍springboot");
+        seminarVO.setSeminarId(1);
+        List<SeminarVO> seminarVOS=new Vector<>();
+        seminarVOS.add(seminarVO);
+        roundVO.setList(seminarVOS);
+        RoundVO roundVO1=new RoundVO();
+        roundVO1.setRoundName("第二轮");
+        roundVO1.setRoundId(1);
+        list.add(roundVO);
+        list.add(roundVO1);
+        return list;
+    }
 
 
 }

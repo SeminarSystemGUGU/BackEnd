@@ -25,8 +25,6 @@ public class StudentController {
     private UserService userService;
     @Autowired
     private StudentService studentService;
-
-
     /**
      *
      * @return
@@ -41,6 +39,14 @@ public class StudentController {
     public UserEntity getStudentInfo(HttpServletRequest httpServletRequest)
      {
          UserEntity userEntity=new UserEntity();
+         userEntity.setAccount("123");
+         userEntity.setUserId(123);
+         userEntity.setStatus(0);
+         userEntity.setRole("Student");
+         userEntity.setName("任天翔大朋友");
+         userEntity.setEmail("qwe1138318433@qq.com");
          return userEntity;
      }
+
+
 }
